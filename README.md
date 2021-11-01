@@ -8,7 +8,7 @@ npm install
 ```
 
 # Running app
-To to run game use
+To to run app use
 ```
 npm run dev
 ```
