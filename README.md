@@ -12,7 +12,7 @@ To to run app use
 ```
 npm run dev
 ```
-You will also need [xampp](https://www.apachefriends.org/pl/index.html) to run local MySQL server witch Apache to handle PHP files
+You will also need [xampp](https://www.apachefriends.org/pl/index.html) to run local MySQL server with Apache to handle PHP files.
 
 # Some screenshots to showcase website:
 ![image](screenshots/main.png)
