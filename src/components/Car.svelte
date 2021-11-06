@@ -96,7 +96,7 @@
 
             Toast.fire({
                 icon: "success",
-                title: "Car has been reserved!",
+                title: "Car has been reservated!",
             });
         } else {
             const Toast = Swal.mixin({
