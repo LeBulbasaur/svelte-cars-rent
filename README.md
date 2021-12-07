@@ -17,5 +17,3 @@ You will also need [xampp](https://www.apachefriends.org/pl/index.html) to run l
 # Some screenshots to showcase website:
 ![image](screenshots/main.png)
 ![image](screenshots/cars.png)
-![image](screenshots/applications.png)
-![image](screenshots/reservation.png)
