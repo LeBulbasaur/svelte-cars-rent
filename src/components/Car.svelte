@@ -14,12 +14,19 @@
         const userId = await checkId(await getSession("getUser"));
         const res = await getReservations();
         await res.forEach((reservation) => {
-            if (reservation.userId === userId && reservation.carId === car.id) {
-                isReservated = true;
-                buttonText = "Pending";
-            }
             if (reservation.carId === car.id) {
                 queue++;
+            }
+            if (userId.blocked === "1") {
+                isReservated = true;
+                buttonText = "Blocked";
+            }
+            if (
+                reservation.userId === userId.id &&
+                reservation.carId === car.id
+            ) {
+                isReservated = true;
+                buttonText = "Pending";
             }
         });
     };
@@ -33,7 +40,8 @@
         const date1 = new Date(start);
         const date2 = new Date(end);
         const difference = (date2 - date1) / (1000 * 3600 * 24) + 1;
-        if (difference < 0) {
+        const differenceNow = (date1 - date) / (1000 * 3600 * 24) + 1;
+        if (difference <= 0 || differenceNow < 0) {
             const Toast = Swal.mixin({
                 toast: true,
                 position: "top-end",
@@ -49,12 +57,13 @@
             daysCount = difference;
         }
     };
-
     const submitRent = async (e) => {
         e.preventDefault();
         const startDate = e.target["start-date"].value;
         const endDate = e.target["end-date"].value;
-        if (startDate > endDate) {
+        const differenceNow =
+            (new Date(startDate) - date) / (1000 * 3600 * 24) + 1;
+        if (startDate > endDate || differenceNow < 0) {
             const Toast = Swal.mixin({
                 toast: true,
                 position: "top-end",
@@ -73,7 +82,6 @@
             window.location.href = ".#/login";
             return;
         }
-
         const reservate = await handleReservation(
             car.id,
             await getSession("getUser"),
@@ -137,7 +145,7 @@
             </p>
             <p class="mt-1 flex text-xs justify-between">
                 <span>Mileage:</span>
-                {car.mileage}
+                {car.mileage} km
             </p>
             <p class="mt-1 flex text-xs justify-between">
                 <span>Fuel:</span>
@@ -170,7 +178,7 @@
                         />
                     </div>
                     <div class="flex-col ">
-                        <label for="start-date" class="text-xs">To:</label>
+                        <label for="end-date" class="text-xs">To:</label>
                         <input
                             on:change={(e) => {
                                 endDate = e.target.value;

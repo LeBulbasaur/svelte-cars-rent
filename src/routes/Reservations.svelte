@@ -2,6 +2,7 @@
     import getReservations from "../services/getReservations";
     import handleApplication from "../services/handleApplication";
     import getSession from "../services/getSession";
+    import changeTime from "../services/changeTime";
 
     window.scroll({
         top: 0,
@@ -12,13 +13,31 @@
     const handleData = async () => {
         const user = await getSession("getUser");
         const res = await getReservations();
-        const data = await res.filter((reservation) => {
-            if (reservation.userName === user) return reservation;
-        });
+        const data = await res
+            .filter((reservation) => {
+                let isHeld = false;
+                const current = new Date(reservation.current_time);
+                const end = new Date(reservation.rent_end);
+                if (current > end) isHeld = true;
+                if (reservation.userName === user) {
+                    reservation.isHeld = isHeld;
+                    return reservation;
+                }
+            })
+            .sort((a, b) => b.status.localeCompare(a.status));
         return data;
     };
 
-    const undoReservation = async (userId, carId) => {
+    const undoReservation = async (userId, carId, resId) => {
+        const d = new Date();
+        const currentDate =
+            d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
+        const change = await changeTime(
+            resId,
+            currentDate,
+            currentDate,
+            currentDate
+        );
         const res = await handleApplication(userId, carId, "delete");
         const data = await res;
         if (data === "deleted") window.location.reload();
@@ -35,7 +54,7 @@
                     No vehicles booked!
                 </h1>
                 <h1 class="text-nord6 text-2xl bold mt-10">
-                    Try renting now 👻
+                    Rent a car now 👻
                 </h1>
             </div>
         {:else}
@@ -62,6 +81,20 @@
                                 >
                                     pending
                                 </p>
+                            {:else if reservation.isHeld}
+                                <p
+                                    class="flex justify-center items-center text-nord11"
+                                >
+                                    expired
+                                </p>
+                                <p
+                                    class="flex justify-center items-center text-nord5 cursor-pointer hover:underline"
+                                    onclick="window.open(
+                                        'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data={reservation.userName}{reservation.carName}{reservation.id}',
+                                        'targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=550px, height=550px, top=25px left=120px'); return false;"
+                                >
+                                    get QR Code
+                                </p>
                             {:else}
                                 <p
                                     class="flex justify-center items-center text-nord14"
@@ -70,7 +103,9 @@
                                 </p>
                                 <p
                                     class="flex justify-center items-center text-nord5 cursor-pointer hover:underline"
-                                    onclick="window.open('https://api.qrserver.com/v1/create-qr-code/?size=250x250&data={reservation.userName}{reservation.carName}{reservation.id}','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=550px, height=550px, top=25px left=120px'); return false;"
+                                    onclick="window.open(
+                                        'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data={reservation.userName}{reservation.carName}{reservation.id}',
+                                        'targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=550px, height=550px, top=25px left=120px'); return false;"
                                 >
                                     get QR Code
                                 </p>
@@ -83,10 +118,11 @@
                                     on:click={() =>
                                         undoReservation(
                                             reservation.userId,
-                                            reservation.carId
+                                            reservation.carId,
+                                            reservation.id
                                         )}
                                 >
-                                    Cancel
+                                    ❌
                                 </button>
                             </p>
                         </td>

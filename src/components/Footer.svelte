@@ -73,7 +73,10 @@
                         />
                     </svg>
                 </a>
-                <a class="ml-3 text-gray-400" href="http://corndog.io/">
+                <a
+                    class="ml-3 text-gray-400"
+                    href="https://www.linkedin.com/in/antoni-zaremba-695397225/"
+                >
                     <svg
                         fill="currentColor"
                         stroke="currentColor"

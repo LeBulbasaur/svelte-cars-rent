@@ -2695,7 +2695,7 @@ var app = (function () {
             method: "POST",
             body: formData,
         });
-        const data = await res.text();
+        const data = await res.json();
         return data;
     }
 
@@ -2728,10 +2728,10 @@ var app = (function () {
     }
 
     async function handleReservation(carId, username, startTime, endTime) {
-        const userId = await checkId(username);
+        const userData = await checkId(username);
         let formData = new FormData();
         formData.append("carId", carId);
-        formData.append("userId", userId);
+        formData.append("userId", userData.id);
         formData.append("startTime", startTime);
         formData.append("endTime", endTime);
         const res = await fetch("./backend/handleReservation.php", {
@@ -5972,44 +5972,45 @@ var app = (function () {
     	let t11_value = /*car*/ ctx[0].mileage + "";
     	let t11;
     	let t12;
+    	let t13;
     	let p2;
     	let span2;
-    	let t14;
-    	let t15_value = /*car*/ ctx[0].fuel + "";
     	let t15;
+    	let t16_value = /*car*/ ctx[0].fuel + "";
     	let t16;
+    	let t17;
     	let p3;
     	let span3;
-    	let t18;
-    	let t19_value = /*car*/ ctx[0].color + "";
     	let t19;
+    	let t20_value = /*car*/ ctx[0].color + "";
     	let t20;
+    	let t21;
     	let p4;
     	let span4;
-    	let t22;
-    	let t23_value = /*car*/ ctx[0].price * /*daysCount*/ ctx[6] + "";
     	let t23;
+    	let t24_value = /*car*/ ctx[0].price * /*daysCount*/ ctx[6] + "";
     	let t24;
     	let t25;
+    	let t26;
     	let form;
     	let div2;
     	let div0;
     	let label0;
-    	let t27;
-    	let input0;
     	let t28;
+    	let input0;
+    	let t29;
     	let div1;
     	let label1;
-    	let t30;
-    	let input1;
     	let t31;
-    	let input2;
+    	let input1;
     	let t32;
+    	let input2;
+    	let t33;
     	let p5;
     	let svg;
     	let path;
-    	let t33;
     	let t34;
+    	let t35;
     	let mounted;
     	let dispose;
 
@@ -6038,119 +6039,120 @@ var app = (function () {
     			span1.textContent = "Mileage:";
     			t10 = space();
     			t11 = text(t11_value);
-    			t12 = space();
+    			t12 = text(" km");
+    			t13 = space();
     			p2 = element("p");
     			span2 = element("span");
     			span2.textContent = "Fuel:";
-    			t14 = space();
-    			t15 = text(t15_value);
-    			t16 = space();
+    			t15 = space();
+    			t16 = text(t16_value);
+    			t17 = space();
     			p3 = element("p");
     			span3 = element("span");
     			span3.textContent = "Color:";
-    			t18 = space();
-    			t19 = text(t19_value);
-    			t20 = space();
+    			t19 = space();
+    			t20 = text(t20_value);
+    			t21 = space();
     			p4 = element("p");
     			span4 = element("span");
     			span4.textContent = "Rent price:";
-    			t22 = space();
-    			t23 = text(t23_value);
-    			t24 = text(" zł");
-    			t25 = space();
+    			t23 = space();
+    			t24 = text(t24_value);
+    			t25 = text(" zł");
+    			t26 = space();
     			form = element("form");
     			div2 = element("div");
     			div0 = element("div");
     			label0 = element("label");
     			label0.textContent = "From:";
-    			t27 = space();
-    			input0 = element("input");
     			t28 = space();
+    			input0 = element("input");
+    			t29 = space();
     			div1 = element("div");
     			label1 = element("label");
     			label1.textContent = "To:";
-    			t30 = space();
-    			input1 = element("input");
     			t31 = space();
-    			input2 = element("input");
+    			input1 = element("input");
     			t32 = space();
+    			input2 = element("input");
+    			t33 = space();
     			p5 = element("p");
     			svg = svg_element("svg");
     			path = svg_element("path");
-    			t33 = space();
-    			t34 = text(/*queue*/ ctx[2]);
+    			t34 = space();
+    			t35 = text(/*queue*/ ctx[2]);
     			attr_dev(img, "alt", "ecommerce");
     			attr_dev(img, "class", "object-cover object-center w-full h-full block");
     			if (!src_url_equal(img.src, img_src_value = "img/cars/" + /*car*/ ctx[0].image)) attr_dev(img, "src", img_src_value);
-    			add_location(img, file$8, 120, 12, 3754);
+    			add_location(img, file$8, 128, 12, 4155);
     			attr_dev(a, "class", "block h-48 rounded-lg overflow-hidden");
-    			add_location(a, file$8, 119, 8, 3691);
+    			add_location(a, file$8, 127, 8, 4092);
     			attr_dev(h3, "class", "text-nord15 tracking-widest title-font mb-1");
-    			add_location(h3, file$8, 127, 12, 3979);
+    			add_location(h3, file$8, 135, 12, 4380);
     			attr_dev(h2, "class", "text-white text-small title-font text-lg font-medium");
-    			add_location(h2, file$8, 130, 12, 4096);
-    			add_location(span0, file$8, 134, 16, 4286);
+    			add_location(h2, file$8, 138, 12, 4497);
+    			add_location(span0, file$8, 142, 16, 4687);
     			attr_dev(p0, "class", "mt-1 flex text-xs justify-between");
-    			add_location(p0, file$8, 133, 12, 4223);
-    			add_location(span1, file$8, 138, 16, 4443);
+    			add_location(p0, file$8, 141, 12, 4624);
+    			add_location(span1, file$8, 146, 16, 4844);
     			attr_dev(p1, "class", "mt-1 flex text-xs justify-between");
-    			add_location(p1, file$8, 137, 12, 4380);
-    			add_location(span2, file$8, 142, 16, 4590);
+    			add_location(p1, file$8, 145, 12, 4781);
+    			add_location(span2, file$8, 150, 16, 4994);
     			attr_dev(p2, "class", "mt-1 flex text-xs justify-between");
-    			add_location(p2, file$8, 141, 12, 4527);
-    			add_location(span3, file$8, 146, 16, 4731);
+    			add_location(p2, file$8, 149, 12, 4931);
+    			add_location(span3, file$8, 154, 16, 5135);
     			attr_dev(p3, "class", "mt-1 flex text-xs justify-between");
-    			add_location(p3, file$8, 145, 12, 4668);
-    			add_location(span4, file$8, 150, 16, 4874);
+    			add_location(p3, file$8, 153, 12, 5072);
+    			add_location(span4, file$8, 158, 16, 5278);
     			attr_dev(p4, "class", "mt-1 flex text-xs justify-between");
-    			add_location(p4, file$8, 149, 12, 4811);
+    			add_location(p4, file$8, 157, 12, 5215);
     			attr_dev(label0, "for", "start-date");
     			attr_dev(label0, "class", "text-xs");
-    			add_location(label0, file$8, 159, 24, 5238);
+    			add_location(label0, file$8, 167, 24, 5642);
     			attr_dev(input0, "type", "date");
     			input0.value = /*startDate*/ ctx[4];
     			attr_dev(input0, "name", "start-date");
     			attr_dev(input0, "class", "outline-none text-xs select-none border-none rounded-lg px-2 bg-nord3 focus:shadow-outline");
-    			add_location(input0, file$8, 160, 24, 5317);
+    			add_location(input0, file$8, 168, 24, 5721);
     			attr_dev(div0, "class", "flex-col mb-2");
-    			add_location(div0, file$8, 158, 20, 5185);
-    			attr_dev(label1, "for", "start-date");
+    			add_location(div0, file$8, 166, 20, 5589);
+    			attr_dev(label1, "for", "end-date");
     			attr_dev(label1, "class", "text-xs");
-    			add_location(label1, file$8, 172, 24, 5919);
+    			add_location(label1, file$8, 180, 24, 6323);
     			attr_dev(input1, "type", "date");
     			input1.value = /*endDate*/ ctx[5];
     			attr_dev(input1, "name", "end-date");
     			attr_dev(input1, "class", "text-xs outline-none select-none border-none rounded-lg px-2 bg-nord3 focus:shadow-outline");
-    			add_location(input1, file$8, 173, 24, 5996);
+    			add_location(input1, file$8, 181, 24, 6398);
     			attr_dev(div1, "class", "flex-col ");
-    			add_location(div1, file$8, 171, 20, 5870);
+    			add_location(div1, file$8, 179, 20, 6274);
     			attr_dev(div2, "class", "flex justify-between flex-wrap");
-    			add_location(div2, file$8, 157, 16, 5119);
+    			add_location(div2, file$8, 165, 16, 5523);
     			attr_dev(input2, "type", "submit");
     			input2.value = /*buttonText*/ ctx[3];
     			input2.disabled = /*isReservated*/ ctx[1];
     			attr_dev(input2, "class", "svelte-uzaqvr");
     			toggle_class(input2, "active", !/*isReservated*/ ctx[1]);
     			toggle_class(input2, "inactive", /*isReservated*/ ctx[1]);
-    			add_location(input2, file$8, 185, 16, 6563);
+    			add_location(input2, file$8, 193, 16, 6965);
     			attr_dev(form, "class", "mt-5 flex flex-col text-white text-medium");
-    			add_location(form, file$8, 153, 12, 4974);
+    			add_location(form, file$8, 161, 12, 5378);
     			attr_dev(path, "d", "M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z");
-    			add_location(path, file$8, 201, 21, 7170);
+    			add_location(path, file$8, 209, 21, 7572);
     			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
     			attr_dev(svg, "width", "16");
     			attr_dev(svg, "height", "16");
     			attr_dev(svg, "viewBox", "0 0 24 24");
     			attr_dev(svg, "fill", "#EBCB8B");
     			attr_dev(svg, "class", "mx-1");
-    			add_location(svg, file$8, 194, 16, 6911);
+    			add_location(svg, file$8, 202, 16, 7313);
     			attr_dev(p5, "class", "mt-1 flex text-xs justify-end italic");
-    			add_location(p5, file$8, 193, 12, 6845);
+    			add_location(p5, file$8, 201, 12, 7247);
     			attr_dev(div3, "class", "mt-4");
-    			add_location(div3, file$8, 126, 8, 3947);
+    			add_location(div3, file$8, 134, 8, 4348);
     			attr_dev(div4, "class", "p-4 bg-nord0 rounded-lg");
-    			add_location(div4, file$8, 118, 4, 3644);
-    			add_location(main, file$8, 117, 0, 3632);
+    			add_location(div4, file$8, 126, 4, 4045);
+    			add_location(main, file$8, 125, 0, 4033);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -6177,42 +6179,43 @@ var app = (function () {
     			append_dev(p1, span1);
     			append_dev(p1, t10);
     			append_dev(p1, t11);
-    			append_dev(div3, t12);
+    			append_dev(p1, t12);
+    			append_dev(div3, t13);
     			append_dev(div3, p2);
     			append_dev(p2, span2);
-    			append_dev(p2, t14);
     			append_dev(p2, t15);
-    			append_dev(div3, t16);
+    			append_dev(p2, t16);
+    			append_dev(div3, t17);
     			append_dev(div3, p3);
     			append_dev(p3, span3);
-    			append_dev(p3, t18);
     			append_dev(p3, t19);
-    			append_dev(div3, t20);
+    			append_dev(p3, t20);
+    			append_dev(div3, t21);
     			append_dev(div3, p4);
     			append_dev(p4, span4);
-    			append_dev(p4, t22);
     			append_dev(p4, t23);
     			append_dev(p4, t24);
-    			append_dev(div3, t25);
+    			append_dev(p4, t25);
+    			append_dev(div3, t26);
     			append_dev(div3, form);
     			append_dev(form, div2);
     			append_dev(div2, div0);
     			append_dev(div0, label0);
-    			append_dev(div0, t27);
+    			append_dev(div0, t28);
     			append_dev(div0, input0);
-    			append_dev(div2, t28);
+    			append_dev(div2, t29);
     			append_dev(div2, div1);
     			append_dev(div1, label1);
-    			append_dev(div1, t30);
+    			append_dev(div1, t31);
     			append_dev(div1, input1);
-    			append_dev(form, t31);
+    			append_dev(form, t32);
     			append_dev(form, input2);
-    			append_dev(div3, t32);
+    			append_dev(div3, t33);
     			append_dev(div3, p5);
     			append_dev(p5, svg);
     			append_dev(svg, path);
-    			append_dev(p5, t33);
     			append_dev(p5, t34);
+    			append_dev(p5, t35);
 
     			if (!mounted) {
     				dispose = [
@@ -6233,9 +6236,9 @@ var app = (function () {
     			if (dirty & /*car*/ 1 && t3_value !== (t3_value = /*car*/ ctx[0].model + "")) set_data_dev(t3, t3_value);
     			if (dirty & /*car*/ 1 && t7_value !== (t7_value = /*car*/ ctx[0].prod_year + "")) set_data_dev(t7, t7_value);
     			if (dirty & /*car*/ 1 && t11_value !== (t11_value = /*car*/ ctx[0].mileage + "")) set_data_dev(t11, t11_value);
-    			if (dirty & /*car*/ 1 && t15_value !== (t15_value = /*car*/ ctx[0].fuel + "")) set_data_dev(t15, t15_value);
-    			if (dirty & /*car*/ 1 && t19_value !== (t19_value = /*car*/ ctx[0].color + "")) set_data_dev(t19, t19_value);
-    			if (dirty & /*car, daysCount*/ 65 && t23_value !== (t23_value = /*car*/ ctx[0].price * /*daysCount*/ ctx[6] + "")) set_data_dev(t23, t23_value);
+    			if (dirty & /*car*/ 1 && t16_value !== (t16_value = /*car*/ ctx[0].fuel + "")) set_data_dev(t16, t16_value);
+    			if (dirty & /*car*/ 1 && t20_value !== (t20_value = /*car*/ ctx[0].color + "")) set_data_dev(t20, t20_value);
+    			if (dirty & /*car, daysCount*/ 65 && t24_value !== (t24_value = /*car*/ ctx[0].price * /*daysCount*/ ctx[6] + "")) set_data_dev(t24, t24_value);
 
     			if (dirty & /*startDate*/ 16) {
     				prop_dev(input0, "value", /*startDate*/ ctx[4]);
@@ -6261,7 +6264,7 @@ var app = (function () {
     				toggle_class(input2, "inactive", /*isReservated*/ ctx[1]);
     			}
 
-    			if (dirty & /*queue*/ 4) set_data_dev(t34, /*queue*/ ctx[2]);
+    			if (dirty & /*queue*/ 4) set_data_dev(t35, /*queue*/ ctx[2]);
     		},
     		i: noop,
     		o: noop,
@@ -6297,13 +6300,18 @@ var app = (function () {
     		const res = await getReservations();
 
     		await res.forEach(reservation => {
-    			if (reservation.userId === userId && reservation.carId === car.id) {
-    				$$invalidate(1, isReservated = true);
-    				$$invalidate(3, buttonText = "Pending");
-    			}
-
     			if (reservation.carId === car.id) {
     				$$invalidate(2, queue++, queue);
+    			}
+
+    			if (userId.blocked === "1") {
+    				$$invalidate(1, isReservated = true);
+    				$$invalidate(3, buttonText = "Blocked");
+    			}
+
+    			if (reservation.userId === userId.id && reservation.carId === car.id) {
+    				$$invalidate(1, isReservated = true);
+    				$$invalidate(3, buttonText = "Pending");
     			}
     		});
     	};
@@ -6317,8 +6325,9 @@ var app = (function () {
     		const date1 = new Date(start);
     		const date2 = new Date(end);
     		const difference = (date2 - date1) / (1000 * 3600 * 24) + 1;
+    		const differenceNow = (date1 - date) / (1000 * 3600 * 24) + 1;
 
-    		if (difference < 0) {
+    		if (difference <= 0 || differenceNow < 0) {
     			const Toast = sweetalert2_all.mixin({
     				toast: true,
     				position: "top-end",
@@ -6340,8 +6349,9 @@ var app = (function () {
     		e.preventDefault();
     		const startDate = e.target["start-date"].value;
     		const endDate = e.target["end-date"].value;
+    		const differenceNow = (new Date(startDate) - date) / (1000 * 3600 * 24) + 1;
 
-    		if (startDate > endDate) {
+    		if (startDate > endDate || differenceNow < 0) {
     			const Toast = sweetalert2_all.mixin({
     				toast: true,
     				position: "top-end",
@@ -6381,7 +6391,7 @@ var app = (function () {
 
     			Toast.fire({
     				icon: "success",
-    				title: "Car has been reserved!"
+    				title: "Car has been reservated!"
     			});
     		} else {
     			const Toast = sweetalert2_all.mixin({
@@ -6550,9 +6560,9 @@ var app = (function () {
     		current: null,
     		token: null,
     		hasCatch: false,
-    		pending: create_pending_block_1,
-    		then: create_then_block_1,
-    		catch: create_catch_block_1,
+    		pending: create_pending_block_1$2,
+    		then: create_then_block_1$2,
+    		catch: create_catch_block_1$2,
     		value: 11
     	};
 
@@ -6613,12 +6623,12 @@ var app = (function () {
     }
 
     // (1:0) <script>      import Car from "../components/Car.svelte";      import { storeCars }
-    function create_catch_block_1(ctx) {
+    function create_catch_block_1$2(ctx) {
     	const block = { c: noop, m: noop, p: noop, d: noop };
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_catch_block_1.name,
+    		id: create_catch_block_1$2.name,
     		type: "catch",
     		source: "(1:0) <script>      import Car from \\\"../components/Car.svelte\\\";      import { storeCars }",
     		ctx
@@ -6628,7 +6638,7 @@ var app = (function () {
     }
 
     // (95:50)                       {#each options as option}
-    function create_then_block_1(ctx) {
+    function create_then_block_1$2(ctx) {
     	let each_1_anchor;
     	let each_value_2 = /*options*/ ctx[11];
     	validate_each_argument(each_value_2);
@@ -6686,7 +6696,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_then_block_1.name,
+    		id: create_then_block_1$2.name,
     		type: "then",
     		source: "(95:50)                       {#each options as option}",
     		ctx
@@ -6867,12 +6877,12 @@ var app = (function () {
     }
 
     // (1:0) <script>      import Car from "../components/Car.svelte";      import { storeCars }
-    function create_pending_block_1(ctx) {
+    function create_pending_block_1$2(ctx) {
     	const block = { c: noop, m: noop, p: noop, d: noop };
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_pending_block_1.name,
+    		id: create_pending_block_1$2.name,
     		type: "pending",
     		source: "(1:0) <script>      import Car from \\\"../components/Car.svelte\\\";      import { storeCars }",
     		ctx
@@ -6909,7 +6919,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$4, create_if_block_1$3, create_if_block_3$1, create_else_block$4];
+    	const if_block_creators = [create_if_block$4, create_if_block_1$3, create_if_block_3$2, create_else_block$4];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -7086,7 +7096,7 @@ var app = (function () {
     }
 
     // (153:44) 
-    function create_if_block_3$1(ctx) {
+    function create_if_block_3$2(ctx) {
     	let div;
     	let h10;
     	let t1;
@@ -7123,7 +7133,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_3$1.name,
+    		id: create_if_block_3$2.name,
     		type: "if",
     		source: "(153:44) ",
     		ctx
@@ -7280,7 +7290,7 @@ var app = (function () {
     }
 
     // (167:20) {#if car.in_use === "0"}
-    function create_if_block_4(ctx) {
+    function create_if_block_4$1(ctx) {
     	let car;
     	let current;
 
@@ -7318,7 +7328,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_4.name,
+    		id: create_if_block_4$1.name,
     		type: "if",
     		source: "(167:20) {#if car.in_use === \\\"0\\\"}",
     		ctx
@@ -7331,7 +7341,7 @@ var app = (function () {
     function create_each_block_1(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*car*/ ctx[6].in_use === "0" && create_if_block_4(ctx);
+    	let if_block = /*car*/ ctx[6].in_use === "0" && create_if_block_4$1(ctx);
 
     	const block = {
     		c: function create() {
@@ -7352,7 +7362,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block_4(ctx);
+    					if_block = create_if_block_4$1(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -7394,7 +7404,7 @@ var app = (function () {
     }
 
     // (148:20) {#if car.in_use === "0"}
-    function create_if_block_2$2(ctx) {
+    function create_if_block_2$3(ctx) {
     	let car;
     	let current;
 
@@ -7432,7 +7442,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2$2.name,
+    		id: create_if_block_2$3.name,
     		type: "if",
     		source: "(148:20) {#if car.in_use === \\\"0\\\"}",
     		ctx
@@ -7445,7 +7455,7 @@ var app = (function () {
     function create_each_block$4(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*car*/ ctx[6].in_use === "0" && create_if_block_2$2(ctx);
+    	let if_block = /*car*/ ctx[6].in_use === "0" && create_if_block_2$3(ctx);
 
     	const block = {
     		c: function create() {
@@ -7466,7 +7476,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block_2$2(ctx);
+    					if_block = create_if_block_2$3(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -7819,8 +7829,150 @@ var app = (function () {
 
     function get_each_context$3(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[5] = list[i];
+    	child_ctx[7] = list[i];
     	return child_ctx;
+    }
+
+    // (1:0) <script>      import { storeUsers }
+    function create_catch_block_1$1(ctx) {
+    	const block = { c: noop, m: noop, p: noop, d: noop };
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_catch_block_1$1.name,
+    		type: "catch",
+    		source: "(1:0) <script>      import { storeUsers }",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (75:31)           {#if !haram}
+    function create_then_block$2(ctx) {
+    	let if_block_anchor;
+
+    	function select_block_type(ctx, dirty) {
+    		if (!/*haram*/ ctx[6]) return create_if_block$3;
+    		return create_else_block_2$1;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if_block.p(ctx, dirty);
+    		},
+    		d: function destroy(detaching) {
+    			if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_then_block$2.name,
+    		type: "then",
+    		source: "(75:31)           {#if !haram}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (141:8) {:else}
+    function create_else_block_2$1(ctx) {
+    	let h1;
+
+    	const block = {
+    		c: function create() {
+    			h1 = element("h1");
+    			h1.textContent = "You have reached the world's edge, none but devils play past\r\n                here 👺";
+    			attr_dev(h1, "class", "text-nord6 text-4xl bold mt-10 px-10 text-center");
+    			add_location(h1, file$6, 141, 12, 6221);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h1, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_2$1.name,
+    		type: "else",
+    		source: "(141:8) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (76:8) {#if !haram}
+    function create_if_block$3(ctx) {
+    	let await_block_anchor;
+    	let promise;
+
+    	let info = {
+    		ctx,
+    		current: null,
+    		token: null,
+    		hasCatch: false,
+    		pending: create_pending_block_1$1,
+    		then: create_then_block_1$1,
+    		catch: create_catch_block$2
+    	};
+
+    	handle_promise(promise = /*$storeUsers*/ ctx[1], info);
+
+    	const block = {
+    		c: function create() {
+    			await_block_anchor = empty();
+    			info.block.c();
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, await_block_anchor, anchor);
+    			info.block.m(target, info.anchor = anchor);
+    			info.mount = () => await_block_anchor.parentNode;
+    			info.anchor = await_block_anchor;
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			info.ctx = ctx;
+
+    			if (dirty & /*$storeUsers*/ 2 && promise !== (promise = /*$storeUsers*/ ctx[1]) && handle_promise(promise, info)) ; else {
+    				update_await_block_branch(info, ctx, dirty);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(await_block_anchor);
+    			info.block.d(detaching);
+    			info.token = null;
+    			info = null;
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$3.name,
+    		type: "if",
+    		source: "(76:8) {#if !haram}",
+    		ctx
+    	});
+
+    	return block;
     }
 
     // (1:0) <script>      import { storeUsers }
@@ -7838,8 +7990,8 @@ var app = (function () {
     	return block;
     }
 
-    // (73:4) {:then}
-    function create_then_block$2(ctx) {
+    // (79:12) {:then}
+    function create_then_block_1$1(ctx) {
     	let table;
     	let th0;
     	let t1;
@@ -7868,11 +8020,11 @@ var app = (function () {
     			}
 
     			attr_dev(th0, "class", "py-4");
-    			add_location(th0, file$6, 74, 12, 2406);
+    			add_location(th0, file$6, 80, 20, 2576);
     			attr_dev(th1, "class", "py-4");
-    			add_location(th1, file$6, 75, 12, 2450);
+    			add_location(th1, file$6, 81, 20, 2628);
     			attr_dev(table, "class", "text-nord6 w-3/4");
-    			add_location(table, file$6, 73, 8, 2360);
+    			add_location(table, file$6, 79, 16, 2522);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -7886,7 +8038,7 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$storeUsers, changeData, currentUser*/ 7) {
+    			if (dirty & /*$storeUsers, changeData, currentUser*/ 11) {
     				each_value = /*$storeUsers*/ ctx[1];
     				validate_each_argument(each_value);
     				let i;
@@ -7918,26 +8070,26 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_then_block$2.name,
+    		id: create_then_block_1$1.name,
     		type: "then",
-    		source: "(73:4) {:then}",
+    		source: "(79:12) {:then}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (90:20) {:else}
+    // (96:28) {:else}
     function create_else_block$3(ctx) {
     	let td;
     	let p;
 
-    	function select_block_type_1(ctx, dirty) {
-    		if (/*currentUser*/ ctx[0] === "administrator") return create_if_block_1$2;
+    	function select_block_type_2(ctx, dirty) {
+    		if (/*currentUser*/ ctx[0] === "administrator") return create_if_block_2$2;
     		return create_else_block_1$2;
     	}
 
-    	let current_block_type = select_block_type_1(ctx);
+    	let current_block_type = select_block_type_2(ctx);
     	let if_block = current_block_type(ctx);
 
     	const block = {
@@ -7946,9 +8098,9 @@ var app = (function () {
     			p = element("p");
     			if_block.c();
     			attr_dev(p, "class", "flex justify-center items-center");
-    			add_location(p, file$6, 91, 28, 3208);
+    			add_location(p, file$6, 97, 36, 3514);
     			attr_dev(td, "class", "border-b-2 border-nord0 py-4");
-    			add_location(td, file$6, 90, 24, 3137);
+    			add_location(td, file$6, 96, 32, 3435);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, td, anchor);
@@ -7956,7 +8108,7 @@ var app = (function () {
     			if_block.m(p, null);
     		},
     		p: function update(ctx, dirty) {
-    			if (current_block_type === (current_block_type = select_block_type_1(ctx)) && if_block) {
+    			if (current_block_type === (current_block_type = select_block_type_2(ctx)) && if_block) {
     				if_block.p(ctx, dirty);
     			} else {
     				if_block.d(1);
@@ -7978,18 +8130,18 @@ var app = (function () {
     		block,
     		id: create_else_block$3.name,
     		type: "else",
-    		source: "(90:20) {:else}",
+    		source: "(96:28) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (84:20) {#if user.rank === "administrator"}
-    function create_if_block$3(ctx) {
+    // (90:28) {#if user.rank === "administrator"}
+    function create_if_block_1$2(ctx) {
     	let td;
     	let p;
-    	let t_value = /*user*/ ctx[5].rank + "";
+    	let t_value = /*user*/ ctx[7].rank + "";
     	let t;
 
     	const block = {
@@ -7998,9 +8150,9 @@ var app = (function () {
     			p = element("p");
     			t = text(t_value);
     			attr_dev(p, "class", "flex justify-center items-center");
-    			add_location(p, file$6, 85, 28, 2928);
+    			add_location(p, file$6, 91, 36, 3186);
     			attr_dev(td, "class", "border-b-2 border-nord0 py-4");
-    			add_location(td, file$6, 84, 24, 2857);
+    			add_location(td, file$6, 90, 32, 3107);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, td, anchor);
@@ -8008,7 +8160,7 @@ var app = (function () {
     			append_dev(p, t);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$storeUsers*/ 2 && t_value !== (t_value = /*user*/ ctx[5].rank + "")) set_data_dev(t, t_value);
+    			if (dirty & /*$storeUsers*/ 2 && t_value !== (t_value = /*user*/ ctx[7].rank + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(td);
@@ -8017,18 +8169,18 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$3.name,
+    		id: create_if_block_1$2.name,
     		type: "if",
-    		source: "(84:20) {#if user.rank === \\\"administrator\\\"}",
+    		source: "(90:28) {#if user.rank === \\\"administrator\\\"}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (123:32) {:else}
+    // (131:40) {:else}
     function create_else_block_1$2(ctx) {
-    	let t_value = /*user*/ ctx[5].rank + "";
+    	let t_value = /*user*/ ctx[7].rank + "";
     	let t;
 
     	const block = {
@@ -8039,7 +8191,7 @@ var app = (function () {
     			insert_dev(target, t, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$storeUsers*/ 2 && t_value !== (t_value = /*user*/ ctx[5].rank + "")) set_data_dev(t, t_value);
+    			if (dirty & /*$storeUsers*/ 2 && t_value !== (t_value = /*user*/ ctx[7].rank + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t);
@@ -8050,21 +8202,21 @@ var app = (function () {
     		block,
     		id: create_else_block_1$2.name,
     		type: "else",
-    		source: "(123:32) {:else}",
+    		source: "(131:40) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (93:32) {#if currentUser === "administrator"}
-    function create_if_block_1$2(ctx) {
+    // (99:40) {#if currentUser === "administrator"}
+    function create_if_block_2$2(ctx) {
     	let select;
     	let if_block0_anchor;
     	let mounted;
     	let dispose;
-    	let if_block0 = /*user*/ ctx[5].rank === "moderator" && create_if_block_3(ctx);
-    	let if_block1 = /*user*/ ctx[5].rank === "client" && create_if_block_2$1(ctx);
+    	let if_block0 = /*user*/ ctx[7].rank === "moderator" && create_if_block_4(ctx);
+    	let if_block1 = /*user*/ ctx[7].rank === "client" && create_if_block_3$1(ctx);
 
     	const block = {
     		c: function create() {
@@ -8074,7 +8226,7 @@ var app = (function () {
     			if (if_block1) if_block1.c();
     			attr_dev(select, "class", "w-1/3 h-10 pl-3 pr-6 text-justify text-nord6 outline-none border-none rounded-lg bg-nord0 focus:shadow-outline");
     			attr_dev(select, "id", "grid-state");
-    			add_location(select, file$6, 93, 36, 3361);
+    			add_location(select, file$6, 99, 44, 3683);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, select, anchor);
@@ -8087,7 +8239,7 @@ var app = (function () {
     					select,
     					"change",
     					function () {
-    						if (is_function(/*changeData*/ ctx[2](/*user*/ ctx[5].username, this))) /*changeData*/ ctx[2](/*user*/ ctx[5].username, this).apply(this, arguments);
+    						if (is_function(/*changeData*/ ctx[3](/*user*/ ctx[7].username, this))) /*changeData*/ ctx[3](/*user*/ ctx[7].username, this).apply(this, arguments);
     					},
     					false,
     					false,
@@ -8100,9 +8252,9 @@ var app = (function () {
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
 
-    			if (/*user*/ ctx[5].rank === "moderator") {
+    			if (/*user*/ ctx[7].rank === "moderator") {
     				if (if_block0) ; else {
-    					if_block0 = create_if_block_3(ctx);
+    					if_block0 = create_if_block_4(ctx);
     					if_block0.c();
     					if_block0.m(select, if_block0_anchor);
     				}
@@ -8111,9 +8263,9 @@ var app = (function () {
     				if_block0 = null;
     			}
 
-    			if (/*user*/ ctx[5].rank === "client") {
+    			if (/*user*/ ctx[7].rank === "client") {
     				if (if_block1) ; else {
-    					if_block1 = create_if_block_2$1(ctx);
+    					if_block1 = create_if_block_3$1(ctx);
     					if_block1.c();
     					if_block1.m(select, null);
     				}
@@ -8133,17 +8285,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$2.name,
+    		id: create_if_block_2$2.name,
     		type: "if",
-    		source: "(93:32) {#if currentUser === \\\"administrator\\\"}",
+    		source: "(99:40) {#if currentUser === \\\"administrator\\\"}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (102:40) {#if user.rank === "moderator"}
-    function create_if_block_3(ctx) {
+    // (108:48) {#if user.rank === "moderator"}
+    function create_if_block_4(ctx) {
     	let option0;
     	let option1;
 
@@ -8157,11 +8309,11 @@ var app = (function () {
     			option0.value = option0.__value;
     			attr_dev(option0, "class", "flex items-center justify-center");
     			option0.selected = true;
-    			add_location(option0, file$6, 102, 44, 3961);
+    			add_location(option0, file$6, 108, 52, 4355);
     			option1.__value = "client";
     			option1.value = option1.__value;
     			attr_dev(option1, "class", "flex items-center justify-center");
-    			add_location(option1, file$6, 107, 44, 4294);
+    			add_location(option1, file$6, 114, 52, 4786);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option0, anchor);
@@ -8175,17 +8327,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_3.name,
+    		id: create_if_block_4.name,
     		type: "if",
-    		source: "(102:40) {#if user.rank === \\\"moderator\\\"}",
+    		source: "(108:48) {#if user.rank === \\\"moderator\\\"}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (114:40) {#if user.rank === "client"}
-    function create_if_block_2$1(ctx) {
+    // (121:48) {#if user.rank === "client"}
+    function create_if_block_3$1(ctx) {
     	let option0;
     	let option1;
 
@@ -8197,11 +8349,11 @@ var app = (function () {
     			option1.textContent = "client";
     			option0.__value = "moderator";
     			option0.value = option0.__value;
-    			add_location(option0, file$6, 114, 44, 4730);
+    			add_location(option0, file$6, 121, 52, 5278);
     			option1.__value = "client";
     			option1.value = option1.__value;
     			option1.selected = true;
-    			add_location(option1, file$6, 117, 44, 4916);
+    			add_location(option1, file$6, 124, 52, 5488);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option0, anchor);
@@ -8215,31 +8367,31 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2$1.name,
+    		id: create_if_block_3$1.name,
     		type: "if",
-    		source: "(114:40) {#if user.rank === \\\"client\\\"}",
+    		source: "(121:48) {#if user.rank === \\\"client\\\"}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (77:12) {#each $storeUsers as user}
+    // (83:20) {#each $storeUsers as user}
     function create_each_block$3(ctx) {
     	let tr;
     	let td;
     	let p;
-    	let t0_value = /*user*/ ctx[5].username + "";
+    	let t0_value = /*user*/ ctx[7].username + "";
     	let t0;
     	let t1;
     	let t2;
 
-    	function select_block_type(ctx, dirty) {
-    		if (/*user*/ ctx[5].rank === "administrator") return create_if_block$3;
+    	function select_block_type_1(ctx, dirty) {
+    		if (/*user*/ ctx[7].rank === "administrator") return create_if_block_1$2;
     		return create_else_block$3;
     	}
 
-    	let current_block_type = select_block_type(ctx);
+    	let current_block_type = select_block_type_1(ctx);
     	let if_block = current_block_type(ctx);
 
     	const block = {
@@ -8252,10 +8404,10 @@ var app = (function () {
     			if_block.c();
     			t2 = space();
     			attr_dev(p, "class", "flex justify-center items-center");
-    			add_location(p, file$6, 79, 24, 2628);
+    			add_location(p, file$6, 85, 32, 2838);
     			attr_dev(td, "class", "border-b-2 border-nord0 py-4");
-    			add_location(td, file$6, 78, 20, 2561);
-    			add_location(tr, file$6, 77, 16, 2535);
+    			add_location(td, file$6, 84, 28, 2763);
+    			add_location(tr, file$6, 83, 24, 2729);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -8267,9 +8419,9 @@ var app = (function () {
     			append_dev(tr, t2);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*$storeUsers*/ 2 && t0_value !== (t0_value = /*user*/ ctx[5].username + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*$storeUsers*/ 2 && t0_value !== (t0_value = /*user*/ ctx[7].username + "")) set_data_dev(t0, t0_value);
 
-    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
+    			if (current_block_type === (current_block_type = select_block_type_1(ctx)) && if_block) {
     				if_block.p(ctx, dirty);
     			} else {
     				if_block.d(1);
@@ -8291,15 +8443,15 @@ var app = (function () {
     		block,
     		id: create_each_block$3.name,
     		type: "each",
-    		source: "(77:12) {#each $storeUsers as user}",
+    		source: "(83:20) {#each $storeUsers as user}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (71:24)           <h1 class="text-nord11">Waiting for data</h1>      {:then}
-    function create_pending_block$2(ctx) {
+    // (77:32)                   <h1 class="text-nord11">Waiting for data</h1>              {:then}
+    function create_pending_block_1$1(ctx) {
     	let h1;
 
     	const block = {
@@ -8307,7 +8459,7 @@ var app = (function () {
     			h1 = element("h1");
     			h1.textContent = "Waiting for data";
     			attr_dev(h1, "class", "text-nord11");
-    			add_location(h1, file$6, 71, 8, 2292);
+    			add_location(h1, file$6, 77, 16, 2438);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8320,9 +8472,24 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+    		id: create_pending_block_1$1.name,
+    		type: "pending",
+    		source: "(77:32)                   <h1 class=\\\"text-nord11\\\">Waiting for data</h1>              {:then}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (1:0) <script>      import { storeUsers }
+    function create_pending_block$2(ctx) {
+    	const block = { c: noop, m: noop, p: noop, d: noop };
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
     		id: create_pending_block$2.name,
     		type: "pending",
-    		source: "(71:24)           <h1 class=\\\"text-nord11\\\">Waiting for data</h1>      {:then}",
+    		source: "(1:0) <script>      import { storeUsers }",
     		ctx
     	});
 
@@ -8331,7 +8498,6 @@ var app = (function () {
 
     function create_fragment$6(ctx) {
     	let main;
-    	let promise;
 
     	let info = {
     		ctx,
@@ -8340,17 +8506,18 @@ var app = (function () {
     		hasCatch: false,
     		pending: create_pending_block$2,
     		then: create_then_block$2,
-    		catch: create_catch_block$2
+    		catch: create_catch_block_1$1,
+    		value: 6
     	};
 
-    	handle_promise(promise = /*$storeUsers*/ ctx[1], info);
+    	handle_promise(/*isHaram*/ ctx[2], info);
 
     	const block = {
     		c: function create() {
     			main = element("main");
     			info.block.c();
     			attr_dev(main, "class", "mt-10 flex justify-center items-center");
-    			add_location(main, file$6, 69, 0, 2203);
+    			add_location(main, file$6, 73, 0, 2278);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -8363,11 +8530,7 @@ var app = (function () {
     		},
     		p: function update(new_ctx, [dirty]) {
     			ctx = new_ctx;
-    			info.ctx = ctx;
-
-    			if (dirty & /*$storeUsers*/ 2 && promise !== (promise = /*$storeUsers*/ ctx[1]) && handle_promise(promise, info)) ; else {
-    				update_await_block_branch(info, ctx, dirty);
-    			}
+    			update_await_block_branch(info, ctx, dirty);
     		},
     		i: noop,
     		o: noop,
@@ -8401,11 +8564,16 @@ var app = (function () {
 
     	const checkIfClient = async () => {
     		logged = await getSession("getUser");
-    		if (await checkRank(logged) === "client") window.location.href = "./";
-    		$$invalidate(0, currentUser = await checkRank(logged));
+
+    		if (await checkRank(logged) === "client") {
+    			return true;
+    		} else {
+    			$$invalidate(0, currentUser = await checkRank(logged));
+    			return false;
+    		}
     	};
 
-    	checkIfClient();
+    	const isHaram = checkIfClient();
 
     	const changeData = async (username, e) => {
     		let formData = new FormData();
@@ -8473,6 +8641,7 @@ var app = (function () {
     		logged,
     		currentUser,
     		checkIfClient,
+    		isHaram,
     		changeData,
     		$storeUsers
     	});
@@ -8486,7 +8655,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [currentUser, $storeUsers, changeData];
+    	return [currentUser, $storeUsers, isHaram, changeData];
     }
 
     class Users extends SvelteComponentDev {
@@ -8503,7 +8672,33 @@ var app = (function () {
     	}
     }
 
+    const setBlocked = async (value, userId) => {
+        let formData = new FormData();
+        formData.append("block", value);
+        formData.append("userId", userId);
+        await fetch("./backend/changeBlock.php", {
+            method: "POST",
+            body: formData,
+        });
+    };
+    async function changeBlock() {
+        const reservations = await getReservations();
+        const blockArray = [];
+        for (const reservation of reservations) {
+            await setBlocked("0", reservation.userId);
+            const end = new Date(reservation.rent_end);
+            const curr = new Date(reservation.current_time);
+            if (curr > end) {
+                blockArray.push(reservation.userId);
+            }
+        }
+        for (const user of blockArray) {
+            await setBlocked("1", user);
+        }
+    }
+
     async function handleApplication(userId, carId, action) {
+        await changeBlock();
         let formData = new FormData();
         formData.append("userId", userId);
         formData.append("carId", carId);
@@ -8533,6 +8728,21 @@ var app = (function () {
         }
     }
 
+    async function doesExist(id, newTimeStart, newTimeEnd, currentTime) {
+        let formData = new FormData();
+        formData.append("id", id);
+        formData.append("newTimeStart", newTimeStart);
+        formData.append("newTimeEnd", newTimeEnd);
+        formData.append("currentTime", currentTime);
+        const res = await fetch("./backend/changeTime.php", {
+            method: "POST",
+            body: formData,
+        });
+        await changeBlock();
+        const data = await res.text();
+        return data;
+    }
+
     /* src\routes\Reservations.svelte generated by Svelte v3.43.2 */
     const file$5 = "src\\routes\\Reservations.svelte";
 
@@ -8542,7 +8752,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (1:0) <script>      import getReservations from "../services/getReservations";      import handleApplication from "../services/handleApplication";      import getSession from "../services/getSession";        window.scroll({          top: 0,          left: 0,          behavior: "smooth",      }
+    // (1:0) <script>      import getReservations from "../services/getReservations";      import handleApplication from "../services/handleApplication";      import getSession from "../services/getSession";      import changeTime from "../services/changeTime";        window.scroll({          top: 0,          left: 0,          behavior: "smooth",      }
     function create_catch_block$1(ctx) {
     	const block = { c: noop, m: noop, p: noop, d: noop };
 
@@ -8550,14 +8760,14 @@ var app = (function () {
     		block,
     		id: create_catch_block$1.name,
     		type: "catch",
-    		source: "(1:0) <script>      import getReservations from \\\"../services/getReservations\\\";      import handleApplication from \\\"../services/handleApplication\\\";      import getSession from \\\"../services/getSession\\\";        window.scroll({          top: 0,          left: 0,          behavior: \\\"smooth\\\",      }",
+    		source: "(1:0) <script>      import getReservations from \\\"../services/getReservations\\\";      import handleApplication from \\\"../services/handleApplication\\\";      import getSession from \\\"../services/getSession\\\";      import changeTime from \\\"../services/changeTime\\\";        window.scroll({          top: 0,          left: 0,          behavior: \\\"smooth\\\",      }",
     		ctx
     	});
 
     	return block;
     }
 
-    // (31:4) {:then items}
+    // (50:4) {:then items}
     function create_then_block$1(ctx) {
     	let if_block_anchor;
 
@@ -8591,14 +8801,14 @@ var app = (function () {
     		block,
     		id: create_then_block$1.name,
     		type: "then",
-    		source: "(31:4) {:then items}",
+    		source: "(50:4) {:then items}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (41:8) {:else}
+    // (60:8) {:else}
     function create_else_block$2(ctx) {
     	let table;
     	let th0;
@@ -8633,13 +8843,13 @@ var app = (function () {
     			}
 
     			attr_dev(th0, "class", "py-4");
-    			add_location(th0, file$5, 42, 16, 1420);
+    			add_location(th0, file$5, 61, 16, 2163);
     			attr_dev(th1, "class", "py-4");
-    			add_location(th1, file$5, 43, 16, 1467);
+    			add_location(th1, file$5, 62, 16, 2210);
     			attr_dev(th2, "class", "py-4");
-    			add_location(th2, file$5, 44, 16, 1520);
+    			add_location(th2, file$5, 63, 16, 2263);
     			attr_dev(table, "class", "w-3/4");
-    			add_location(table, file$5, 41, 12, 1381);
+    			add_location(table, file$5, 60, 12, 2124);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -8689,14 +8899,14 @@ var app = (function () {
     		block,
     		id: create_else_block$2.name,
     		type: "else",
-    		source: "(41:8) {:else}",
+    		source: "(60:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (32:8) {#if items.length === 0}
+    // (51:8) {#if items.length === 0}
     function create_if_block$2(ctx) {
     	let div;
     	let h10;
@@ -8710,13 +8920,13 @@ var app = (function () {
     			h10.textContent = "No vehicles booked!";
     			t1 = space();
     			h11 = element("h1");
-    			h11.textContent = "Try renting now 👻";
+    			h11.textContent = "Rent a car now 👻";
     			attr_dev(h10, "class", "text-nord6 text-4xl bold mt-10");
-    			add_location(h10, file$5, 33, 16, 1099);
+    			add_location(h10, file$5, 52, 16, 1843);
     			attr_dev(h11, "class", "text-nord6 text-2xl bold mt-10");
-    			add_location(h11, file$5, 36, 16, 1224);
+    			add_location(h11, file$5, 55, 16, 1968);
     			attr_dev(div, "class", "flex flex-col justify-center items-center");
-    			add_location(div, file$5, 32, 12, 1026);
+    			add_location(div, file$5, 51, 12, 1770);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -8734,14 +8944,14 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(32:8) {#if items.length === 0}",
+    		source: "(51:8) {#if items.length === 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (65:28) {:else}
+    // (98:28) {:else}
     function create_else_block_1$1(ctx) {
     	let p0;
     	let t1;
@@ -8756,10 +8966,10 @@ var app = (function () {
     			p1 = element("p");
     			t2 = text("get QR Code");
     			attr_dev(p0, "class", "flex justify-center items-center text-nord14");
-    			add_location(p0, file$5, 65, 32, 2616);
+    			add_location(p0, file$5, 98, 32, 4367);
     			attr_dev(p1, "class", "flex justify-center items-center text-nord5 cursor-pointer hover:underline");
-    			attr_dev(p1, "onclick", "window.open('https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=" + /*reservation*/ ctx[4].userName + /*reservation*/ ctx[4].carName + /*reservation*/ ctx[4].id + "','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=550px, height=550px, top=25px left=120px'); return false;");
-    			add_location(p1, file$5, 70, 32, 2859);
+    			attr_dev(p1, "onclick", "window.open(\r\n                                        'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=" + /*reservation*/ ctx[4].userName + /*reservation*/ ctx[4].carName + /*reservation*/ ctx[4].id + "',\r\n                                        'targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=550px, height=550px, top=25px left=120px'); return false;");
+    			add_location(p1, file$5, 103, 32, 4610);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p0, anchor);
@@ -8779,14 +8989,59 @@ var app = (function () {
     		block,
     		id: create_else_block_1$1.name,
     		type: "else",
-    		source: "(65:28) {:else}",
+    		source: "(98:28) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (59:28) {#if reservation.status === "0"}
+    // (84:57) 
+    function create_if_block_2$1(ctx) {
+    	let p0;
+    	let t1;
+    	let p1;
+    	let t2;
+
+    	const block = {
+    		c: function create() {
+    			p0 = element("p");
+    			p0.textContent = "expired";
+    			t1 = space();
+    			p1 = element("p");
+    			t2 = text("get QR Code");
+    			attr_dev(p0, "class", "flex justify-center items-center text-nord11");
+    			add_location(p0, file$5, 84, 32, 3381);
+    			attr_dev(p1, "class", "flex justify-center items-center text-nord5 cursor-pointer hover:underline");
+    			attr_dev(p1, "onclick", "window.open(\r\n                                        'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=" + /*reservation*/ ctx[4].userName + /*reservation*/ ctx[4].carName + /*reservation*/ ctx[4].id + "',\r\n                                        'targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=550px, height=550px, top=25px left=120px'); return false;");
+    			add_location(p1, file$5, 89, 32, 3625);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p0, anchor);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, p1, anchor);
+    			append_dev(p1, t2);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p0);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(p1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2$1.name,
+    		type: "if",
+    		source: "(84:57) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (78:28) {#if reservation.status === "0"}
     function create_if_block_1$1(ctx) {
     	let p;
 
@@ -8795,7 +9050,7 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "pending";
     			attr_dev(p, "class", "flex justify-center items-center text-nord13");
-    			add_location(p, file$5, 59, 32, 2335);
+    			add_location(p, file$5, 78, 32, 3078);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -8810,14 +9065,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$1.name,
     		type: "if",
-    		source: "(59:28) {#if reservation.status === \\\"0\\\"}",
+    		source: "(78:28) {#if reservation.status === \\\"0\\\"}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (46:16) {#each items as reservation}
+    // (65:16) {#each items as reservation}
     function create_each_block$2(ctx) {
     	let tr;
     	let td0;
@@ -8844,6 +9099,7 @@ var app = (function () {
 
     	function select_block_type_1(ctx, dirty) {
     		if (/*reservation*/ ctx[4].status === "0") return create_if_block_1$1;
+    		if (/*reservation*/ ctx[4].isHeld) return create_if_block_2$1;
     		return create_else_block_1$1;
     	}
 
@@ -8873,25 +9129,25 @@ var app = (function () {
     			td3 = element("td");
     			p2 = element("p");
     			button = element("button");
-    			button.textContent = "Cancel";
+    			button.textContent = "❌";
     			t8 = space();
     			attr_dev(p0, "class", "flex justify-center items-center");
-    			add_location(p0, file$5, 48, 28, 1719);
+    			add_location(p0, file$5, 67, 28, 2462);
     			attr_dev(td0, "class", "border-b-2 border-nord0 py-4");
-    			add_location(td0, file$5, 47, 24, 1648);
+    			add_location(td0, file$5, 66, 24, 2391);
     			attr_dev(p1, "class", "flex justify-center items-center");
-    			add_location(p1, file$5, 53, 28, 1980);
+    			add_location(p1, file$5, 72, 28, 2723);
     			attr_dev(td1, "class", "border-b-2 border-nord0 py-4");
-    			add_location(td1, file$5, 52, 24, 1909);
+    			add_location(td1, file$5, 71, 24, 2652);
     			attr_dev(td2, "class", "border-b-2 border-nord0 py-4");
-    			add_location(td2, file$5, 57, 24, 2198);
+    			add_location(td2, file$5, 76, 24, 2941);
     			attr_dev(button, "class", "text-white bg-nord11 border-0 flex justify-center py-1 w-2/3 px-2 focus:outline-none rounded sm:text-md text-sm");
-    			add_location(button, file$5, 80, 32, 3687);
+    			add_location(button, file$5, 115, 32, 5522);
     			attr_dev(p2, "class", "flex justify-center items-center");
-    			add_location(p2, file$5, 79, 28, 3609);
+    			add_location(p2, file$5, 114, 28, 5444);
     			attr_dev(td3, "class", "border-b-2 border-nord0 py-4");
-    			add_location(td3, file$5, 78, 24, 3538);
-    			add_location(tr, file$5, 46, 20, 1618);
+    			add_location(td3, file$5, 113, 24, 5373);
+    			add_location(tr, file$5, 65, 20, 2361);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -8934,14 +9190,14 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(46:16) {#each items as reservation}",
+    		source: "(65:16) {#each items as reservation}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (29:25)           <h1>Waiting...</h1>      {:then items}
+    // (48:25)           <h1>Waiting...</h1>      {:then items}
     function create_pending_block$1(ctx) {
     	let h1;
 
@@ -8949,7 +9205,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			h1.textContent = "Waiting...";
-    			add_location(h1, file$5, 29, 8, 940);
+    			add_location(h1, file$5, 48, 8, 1684);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -8964,7 +9220,7 @@ var app = (function () {
     		block,
     		id: create_pending_block$1.name,
     		type: "pending",
-    		source: "(29:25)           <h1>Waiting...</h1>      {:then items}",
+    		source: "(48:25)           <h1>Waiting...</h1>      {:then items}",
     		ctx
     	});
 
@@ -8992,7 +9248,7 @@ var app = (function () {
     			main = element("main");
     			info.block.c();
     			attr_dev(main, "class", "mt-10 text-nord6 flex justify-center select-none");
-    			add_location(main, file$5, 27, 0, 840);
+    			add_location(main, file$5, 46, 0, 1584);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9038,13 +9294,24 @@ var app = (function () {
     		const res = await getReservations();
 
     		const data = await res.filter(reservation => {
-    			if (reservation.userName === user) return reservation;
-    		});
+    			let isHeld = false;
+    			const current = new Date(reservation.current_time);
+    			const end = new Date(reservation.rent_end);
+    			if (current > end) isHeld = true;
+
+    			if (reservation.userName === user) {
+    				reservation.isHeld = isHeld;
+    				return reservation;
+    			}
+    		}).sort((a, b) => b.status.localeCompare(a.status));
 
     		return data;
     	};
 
-    	const undoReservation = async (userId, carId) => {
+    	const undoReservation = async (userId, carId, resId) => {
+    		const d = new Date();
+    		const currentDate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
+    		await doesExist(resId, currentDate, currentDate, currentDate);
     		const res = await handleApplication(userId, carId, "delete");
     		const data = await res;
     		if (data === "deleted") window.location.reload();
@@ -9056,12 +9323,13 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Reservations> was created with unknown prop '${key}'`);
     	});
 
-    	const click_handler = reservation => undoReservation(reservation.userId, reservation.carId);
+    	const click_handler = reservation => undoReservation(reservation.userId, reservation.carId, reservation.id);
 
     	$$self.$capture_state = () => ({
     		getReservations,
     		handleApplication,
     		getSession,
+    		changeTime: doesExist,
     		handleData,
     		undoReservation
     	});
@@ -9083,49 +9351,37 @@ var app = (function () {
     	}
     }
 
-    async function doesExist(id, newTime) {
-        let formData = new FormData();
-        formData.append("id", id);
-        formData.append("newTime", newTime);
-        const res = await fetch("./backend/changeTime.php", {
-            method: "POST",
-            body: formData,
-        });
-        const data = await res.text();
-        return data;
-    }
-
     /* src\routes\Applications.svelte generated by Svelte v3.43.2 */
     const file$4 = "src\\routes\\Applications.svelte";
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[12] = list[i];
+    	child_ctx[19] = list[i];
     	return child_ctx;
     }
 
-    // (1:0) <script>      import getReservations from "../services/getReservations";      import handleApplication from "../services/handleApplication";      import changeTime from "../services/changeTime";      import Swal from "sweetalert2";        window.scroll({          top: 0,          left: 0,          behavior: "smooth",      }
-    function create_catch_block(ctx) {
+    // (1:0) <script>      import getReservations from "../services/getReservations";      import handleApplication from "../services/handleApplication";      import changeTime from "../services/changeTime";      import getSession from "../services/getSession";      import checkRank from "../services/checkRank";      import Swal from "sweetalert2";        window.scroll({          top: 0,          left: 0,          behavior: "smooth",      }
+    function create_catch_block_1(ctx) {
     	const block = { c: noop, m: noop, p: noop, d: noop };
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_catch_block.name,
+    		id: create_catch_block_1.name,
     		type: "catch",
-    		source: "(1:0) <script>      import getReservations from \\\"../services/getReservations\\\";      import handleApplication from \\\"../services/handleApplication\\\";      import changeTime from \\\"../services/changeTime\\\";      import Swal from \\\"sweetalert2\\\";        window.scroll({          top: 0,          left: 0,          behavior: \\\"smooth\\\",      }",
+    		source: "(1:0) <script>      import getReservations from \\\"../services/getReservations\\\";      import handleApplication from \\\"../services/handleApplication\\\";      import changeTime from \\\"../services/changeTime\\\";      import getSession from \\\"../services/getSession\\\";      import checkRank from \\\"../services/checkRank\\\";      import Swal from \\\"sweetalert2\\\";        window.scroll({          top: 0,          left: 0,          behavior: \\\"smooth\\\",      }",
     		ctx
     	});
 
     	return block;
     }
 
-    // (96:4) {:then items}
+    // (134:31)           {#if !haram}
     function create_then_block(ctx) {
     	let if_block_anchor;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*items*/ ctx[11].length === 0) return create_if_block$1;
-    		return create_else_block$1;
+    		if (!/*haram*/ ctx[17]) return create_if_block$1;
+    		return create_else_block_3;
     	}
 
     	let current_block_type = select_block_type(ctx);
@@ -9163,28 +9419,182 @@ var app = (function () {
     		block,
     		id: create_then_block.name,
     		type: "then",
-    		source: "(96:4) {:then items}",
+    		source: "(134:31)           {#if !haram}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (106:8) {:else}
+    // (327:8) {:else}
+    function create_else_block_3(ctx) {
+    	let h1;
+
+    	const block = {
+    		c: function create() {
+    			h1 = element("h1");
+    			h1.textContent = "You have reached the world's edge, none but devils play past\r\n                here 👺";
+    			attr_dev(h1, "class", "text-nord6 text-4xl bold mt-10 px-10 text-center");
+    			add_location(h1, file$4, 327, 12, 16457);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h1, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_3.name,
+    		type: "else",
+    		source: "(327:8) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (135:8) {#if !haram}
+    function create_if_block$1(ctx) {
+    	let await_block_anchor;
+    	let promise;
+
+    	let info = {
+    		ctx,
+    		current: null,
+    		token: null,
+    		hasCatch: false,
+    		pending: create_pending_block_1,
+    		then: create_then_block_1,
+    		catch: create_catch_block,
+    		value: 18
+    	};
+
+    	handle_promise(promise = /*reservationData*/ ctx[0], info);
+
+    	const block = {
+    		c: function create() {
+    			await_block_anchor = empty();
+    			info.block.c();
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, await_block_anchor, anchor);
+    			info.block.m(target, info.anchor = anchor);
+    			info.mount = () => await_block_anchor.parentNode;
+    			info.anchor = await_block_anchor;
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			info.ctx = ctx;
+
+    			if (dirty & /*reservationData*/ 1 && promise !== (promise = /*reservationData*/ ctx[0]) && handle_promise(promise, info)) ; else {
+    				update_await_block_branch(info, ctx, dirty);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(await_block_anchor);
+    			info.block.d(detaching);
+    			info.token = null;
+    			info = null;
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(135:8) {#if !haram}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (1:0) <script>      import getReservations from "../services/getReservations";      import handleApplication from "../services/handleApplication";      import changeTime from "../services/changeTime";      import getSession from "../services/getSession";      import checkRank from "../services/checkRank";      import Swal from "sweetalert2";        window.scroll({          top: 0,          left: 0,          behavior: "smooth",      }
+    function create_catch_block(ctx) {
+    	const block = { c: noop, m: noop, p: noop, d: noop };
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_catch_block.name,
+    		type: "catch",
+    		source: "(1:0) <script>      import getReservations from \\\"../services/getReservations\\\";      import handleApplication from \\\"../services/handleApplication\\\";      import changeTime from \\\"../services/changeTime\\\";      import getSession from \\\"../services/getSession\\\";      import checkRank from \\\"../services/checkRank\\\";      import Swal from \\\"sweetalert2\\\";        window.scroll({          top: 0,          left: 0,          behavior: \\\"smooth\\\",      }",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (138:12) {:then items}
+    function create_then_block_1(ctx) {
+    	let if_block_anchor;
+
+    	function select_block_type_1(ctx, dirty) {
+    		if (/*items*/ ctx[18].length === 0) return create_if_block_1;
+    		return create_else_block$1;
+    	}
+
+    	let current_block_type = select_block_type_1(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (current_block_type === (current_block_type = select_block_type_1(ctx)) && if_block) {
+    				if_block.p(ctx, dirty);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_then_block_1.name,
+    		type: "then",
+    		source: "(138:12) {:then items}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (148:16) {:else}
     function create_else_block$1(ctx) {
     	let table;
     	let th0;
+    	let span0;
     	let t1;
     	let th1;
+    	let span1;
     	let t3;
     	let th2;
     	let t5;
     	let th3;
-    	let p0;
     	let t7;
-    	let p1;
-    	let t9;
-    	let each_value = /*items*/ ctx[11];
+    	let mounted;
+    	let dispose;
+    	let each_value = /*items*/ ctx[18];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -9196,60 +9606,68 @@ var app = (function () {
     		c: function create() {
     			table = element("table");
     			th0 = element("th");
-    			th0.textContent = "Username 😎";
+    			span0 = element("span");
+    			span0.textContent = "Username 😎";
     			t1 = space();
     			th1 = element("th");
-    			th1.textContent = "Car 🏎️";
+    			span1 = element("span");
+    			span1.textContent = "Car 🏎️";
     			t3 = space();
     			th2 = element("th");
     			th2.textContent = "Rent Time 📅";
     			t5 = space();
     			th3 = element("th");
-    			p0 = element("p");
-    			p0.textContent = "Modify Time";
+    			th3.textContent = "Simulate Time 📅";
     			t7 = space();
-    			p1 = element("p");
-    			p1.textContent = "(± days) ✂️";
-    			t9 = space();
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
+    			attr_dev(span0, "class", "cursor-pointer");
+    			add_location(span0, file$4, 150, 28, 5221);
     			attr_dev(th0, "class", "py-4");
-    			add_location(th0, file$4, 107, 16, 3559);
+    			add_location(th0, file$4, 149, 24, 5174);
+    			attr_dev(span1, "class", "cursor-pointer");
+    			add_location(span1, file$4, 163, 28, 5843);
     			attr_dev(th1, "class", "py-4");
-    			add_location(th1, file$4, 108, 16, 3610);
+    			add_location(th1, file$4, 162, 24, 5796);
     			attr_dev(th2, "class", "py-4");
-    			add_location(th2, file$4, 109, 16, 3657);
-    			add_location(p0, file$4, 111, 20, 3775);
-    			add_location(p1, file$4, 112, 20, 3815);
-    			attr_dev(th3, "class", "py-4 flex flex-col items-center");
-    			add_location(th3, file$4, 110, 16, 3709);
+    			add_location(th2, file$4, 175, 24, 6413);
+    			attr_dev(th3, "class", "py-4");
+    			add_location(th3, file$4, 176, 24, 6473);
     			attr_dev(table, "class", "w-3/4");
-    			add_location(table, file$4, 106, 12, 3520);
+    			add_location(table, file$4, 148, 20, 5127);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
     			append_dev(table, th0);
+    			append_dev(th0, span0);
     			append_dev(table, t1);
     			append_dev(table, th1);
+    			append_dev(th1, span1);
     			append_dev(table, t3);
     			append_dev(table, th2);
     			append_dev(table, t5);
     			append_dev(table, th3);
-    			append_dev(th3, p0);
-    			append_dev(th3, t7);
-    			append_dev(th3, p1);
-    			append_dev(table, t9);
+    			append_dev(table, t7);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(table, null);
     			}
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(span0, "click", /*click_handler*/ ctx[7], false, false, false),
+    					listen_dev(span1, "click", /*click_handler_1*/ ctx[8], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*refuseReservation, reservationData, changeApplicationStatus, undoReservation, shortenRent*/ 31) {
-    				each_value = /*items*/ ctx[11];
+    			if (dirty & /*refuseReservation, reservationData, changeApplicationStatus, undoReservation, modifyTime*/ 121) {
+    				each_value = /*items*/ ctx[18];
     				validate_each_argument(each_value);
     				let i;
 
@@ -9275,6 +9693,8 @@ var app = (function () {
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(table);
     			destroy_each(each_blocks, detaching);
+    			mounted = false;
+    			run_all(dispose);
     		}
     	};
 
@@ -9282,15 +9702,15 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(106:8) {:else}",
+    		source: "(148:16) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (97:8) {#if items.length === 0}
-    function create_if_block$1(ctx) {
+    // (139:16) {#if items.length === 0}
+    function create_if_block_1(ctx) {
     	let div;
     	let h10;
     	let t1;
@@ -9305,11 +9725,11 @@ var app = (function () {
     			h11 = element("h1");
     			h11.textContent = "Just wait for clients 🦍";
     			attr_dev(h10, "class", "text-nord6 text-4xl bold mt-10");
-    			add_location(h10, file$4, 98, 16, 3231);
+    			add_location(h10, file$4, 140, 24, 4774);
     			attr_dev(h11, "class", "text-nord6 text-2xl bold mt-10");
-    			add_location(h11, file$4, 101, 16, 3357);
+    			add_location(h11, file$4, 143, 24, 4924);
     			attr_dev(div, "class", "flex flex-col justify-center items-center");
-    			add_location(div, file$4, 97, 12, 3158);
+    			add_location(div, file$4, 139, 20, 4693);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -9325,16 +9745,16 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$1.name,
+    		id: create_if_block_1.name,
     		type: "if",
-    		source: "(97:8) {#if items.length === 0}",
+    		source: "(139:16) {#if items.length === 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (159:32) {:else}
+    // (243:40) {:else}
     function create_else_block_2(ctx) {
     	let p;
 
@@ -9343,7 +9763,7 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "pending";
     			attr_dev(p, "class", "italic");
-    			add_location(p, file$4, 159, 36, 6573);
+    			add_location(p, file$4, 243, 44, 11163);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -9358,50 +9778,91 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(159:32) {:else}",
+    		source: "(243:40) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (134:32) {#if reservation.status === "1"}
-    function create_if_block_2(ctx) {
-    	let button0;
+    // (196:40) {#if reservation.status === "1"}
+    function create_if_block_3(ctx) {
+    	let div2;
+    	let div0;
+    	let label0;
     	let t1;
-    	let button1;
+    	let input0;
+    	let input0_value_value;
+    	let t2;
+    	let div1;
+    	let label1;
+    	let t4;
+    	let input1;
+    	let input1_value_value;
     	let mounted;
     	let dispose;
 
-    	function click_handler() {
-    		return /*click_handler*/ ctx[5](/*reservation*/ ctx[12]);
+    	function change_handler(...args) {
+    		return /*change_handler*/ ctx[9](/*reservation*/ ctx[19], ...args);
     	}
 
-    	function click_handler_1() {
-    		return /*click_handler_1*/ ctx[6](/*reservation*/ ctx[12]);
+    	function change_handler_1(...args) {
+    		return /*change_handler_1*/ ctx[10](/*reservation*/ ctx[19], ...args);
     	}
 
     	const block = {
     		c: function create() {
-    			button0 = element("button");
-    			button0.textContent = "+";
+    			div2 = element("div");
+    			div0 = element("div");
+    			label0 = element("label");
+    			label0.textContent = "From:";
     			t1 = space();
-    			button1 = element("button");
-    			button1.textContent = "-";
-    			attr_dev(button0, "class", "text-white mx-1 bg-green-500 flex justify-center border-0 px-2 focus:outline-none hover:bg-green-600 rounded sm:text-md text-sm");
-    			add_location(button0, file$4, 134, 36, 4987);
-    			attr_dev(button1, "class", "text-white mx-1 bg-red-500 flex justify-center border-0 px-2 focus:outline-none hover:bg-red-600 rounded sm:text-md text-sm");
-    			add_location(button1, file$4, 146, 36, 5761);
+    			input0 = element("input");
+    			t2 = space();
+    			div1 = element("div");
+    			label1 = element("label");
+    			label1.textContent = "To:";
+    			t4 = space();
+    			input1 = element("input");
+    			attr_dev(label0, "for", "start-date");
+    			attr_dev(label0, "class", "text-xs");
+    			add_location(label0, file$4, 198, 52, 7821);
+    			attr_dev(input0, "type", "date");
+    			input0.value = input0_value_value = /*reservation*/ ctx[19].rent_start;
+    			attr_dev(input0, "name", "start-date");
+    			attr_dev(input0, "class", "outline-none text-xs select-none border-none rounded-lg px-2 bg-nord3 focus:shadow-outline");
+    			add_location(input0, file$4, 203, 52, 8154);
+    			attr_dev(div0, "class", "flex-col mb-2");
+    			add_location(div0, file$4, 197, 48, 7740);
+    			attr_dev(label1, "for", "end-date");
+    			attr_dev(label1, "class", "text-xs");
+    			add_location(label1, file$4, 220, 52, 9485);
+    			attr_dev(input1, "type", "date");
+    			input1.value = input1_value_value = /*reservation*/ ctx[19].rent_end;
+    			attr_dev(input1, "name", "end-date");
+    			attr_dev(input1, "class", "text-xs outline-none select-none border-none rounded-lg px-2 bg-nord3 focus:shadow-outline");
+    			add_location(input1, file$4, 225, 52, 9814);
+    			attr_dev(div1, "class", "flex-col ");
+    			add_location(div1, file$4, 219, 48, 9408);
+    			attr_dev(div2, "class", "flex flex-col");
+    			add_location(div2, file$4, 196, 44, 7663);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, button0, anchor);
-    			insert_dev(target, t1, anchor);
-    			insert_dev(target, button1, anchor);
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div0);
+    			append_dev(div0, label0);
+    			append_dev(div0, t1);
+    			append_dev(div0, input0);
+    			append_dev(div2, t2);
+    			append_dev(div2, div1);
+    			append_dev(div1, label1);
+    			append_dev(div1, t4);
+    			append_dev(div1, input1);
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(button0, "click", click_handler, false, false, false),
-    					listen_dev(button1, "click", click_handler_1, false, false, false)
+    					listen_dev(input0, "change", change_handler, false, false, false),
+    					listen_dev(input1, "change", change_handler_1, false, false, false)
     				];
 
     				mounted = true;
@@ -9409,11 +9870,17 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
+
+    			if (dirty & /*reservationData*/ 1 && input0_value_value !== (input0_value_value = /*reservation*/ ctx[19].rent_start)) {
+    				prop_dev(input0, "value", input0_value_value);
+    			}
+
+    			if (dirty & /*reservationData*/ 1 && input1_value_value !== (input1_value_value = /*reservation*/ ctx[19].rent_end)) {
+    				prop_dev(input1, "value", input1_value_value);
+    			}
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(button0);
-    			if (detaching) detach_dev(t1);
-    			if (detaching) detach_dev(button1);
+    			if (detaching) detach_dev(div2);
     			mounted = false;
     			run_all(dispose);
     		}
@@ -9421,31 +9888,31 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_2.name,
+    		id: create_if_block_3.name,
     		type: "if",
-    		source: "(134:32) {#if reservation.status === \\\"1\\\"}",
+    		source: "(196:40) {#if reservation.status === \\\"1\\\"}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (177:32) {:else}
+    // (292:40) {:else}
     function create_else_block_1(ctx) {
     	let button;
     	let mounted;
     	let dispose;
 
     	function click_handler_3() {
-    		return /*click_handler_3*/ ctx[8](/*reservation*/ ctx[12]);
+    		return /*click_handler_3*/ ctx[13](/*reservation*/ ctx[19]);
     	}
 
     	const block = {
     		c: function create() {
     			button = element("button");
-    			button.textContent = "Undo";
-    			attr_dev(button, "class", "text-white bg-nord11 flex justify-center border-0 py-1 w-2/3 px-2 focus:outline-none rounded sm:text-md text-sm");
-    			add_location(button, file$4, 177, 36, 7667);
+    			button.textContent = "↩️";
+    			attr_dev(button, "class", "text-white bg-nord8 flex justify-center border-0 py-1 w-2/3 px-2 focus:outline-none rounded sm:text-md text-sm");
+    			add_location(button, file$4, 292, 44, 14423);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -9469,29 +9936,29 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(177:32) {:else}",
+    		source: "(292:40) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (166:32) {#if reservation.status === "0"}
-    function create_if_block_1(ctx) {
+    // (280:40) {#if reservation.status === "0"}
+    function create_if_block_2(ctx) {
     	let button;
     	let mounted;
     	let dispose;
 
     	function click_handler_2() {
-    		return /*click_handler_2*/ ctx[7](/*reservation*/ ctx[12]);
+    		return /*click_handler_2*/ ctx[12](/*reservation*/ ctx[19]);
     	}
 
     	const block = {
     		c: function create() {
     			button = element("button");
-    			button.textContent = "Accept";
+    			button.textContent = "✔️";
     			attr_dev(button, "class", "text-white bg-green-500 flex justify-center border-0 py-1 w-2/3 px-2 focus:outline-none hover:bg-green-600 rounded sm:text-md text-sm");
-    			add_location(button, file$4, 166, 36, 6953);
+    			add_location(button, file$4, 280, 44, 13552);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -9513,67 +9980,72 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1.name,
+    		id: create_if_block_2.name,
     		type: "if",
-    		source: "(166:32) {#if reservation.status === \\\"0\\\"}",
+    		source: "(280:40) {#if reservation.status === \\\"0\\\"}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (115:16) {#each items as reservation}
+    // (178:24) {#each items as reservation}
     function create_each_block$1(ctx) {
     	let tr;
     	let td0;
     	let p0;
-    	let t0_value = /*reservation*/ ctx[12].userName + "";
+    	let t0_value = /*reservation*/ ctx[19].userName + "";
     	let t0;
     	let t1;
     	let td1;
     	let p1;
-    	let t2_value = /*reservation*/ ctx[12].carName + "";
+    	let t2_value = /*reservation*/ ctx[19].carName + "";
     	let t2;
     	let t3;
     	let td2;
-    	let p2;
-    	let t4_value = /*reservation*/ ctx[12].rent_start + "";
+    	let div0;
     	let t4;
-    	let t5;
-    	let t6_value = /*reservation*/ ctx[12].rent_end + "";
-    	let t6;
-    	let t7;
     	let td3;
-    	let div;
-    	let t8;
+    	let div2;
+    	let div1;
+    	let label;
+    	let t6;
+    	let input;
+    	let input_value_value;
+    	let input_disabled_value;
+    	let t7;
     	let td4;
-    	let p3;
-    	let t9;
+    	let p2;
+    	let t8;
     	let td5;
-    	let p4;
+    	let p3;
     	let button;
-    	let t11;
+    	let t10;
     	let mounted;
     	let dispose;
 
-    	function select_block_type_1(ctx, dirty) {
-    		if (/*reservation*/ ctx[12].status === "1") return create_if_block_2;
+    	function select_block_type_2(ctx, dirty) {
+    		if (/*reservation*/ ctx[19].status === "1") return create_if_block_3;
     		return create_else_block_2;
     	}
 
-    	let current_block_type = select_block_type_1(ctx);
+    	let current_block_type = select_block_type_2(ctx);
     	let if_block0 = current_block_type(ctx);
 
-    	function select_block_type_2(ctx, dirty) {
-    		if (/*reservation*/ ctx[12].status === "0") return create_if_block_1;
+    	function change_handler_2(...args) {
+    		return /*change_handler_2*/ ctx[11](/*reservation*/ ctx[19], ...args);
+    	}
+
+    	function select_block_type_3(ctx, dirty) {
+    		if (/*reservation*/ ctx[19].status === "0") return create_if_block_2;
     		return create_else_block_1;
     	}
 
-    	let current_block_type_1 = select_block_type_2(ctx);
+    	let current_block_type_1 = select_block_type_3(ctx);
     	let if_block1 = current_block_type_1(ctx);
 
     	function click_handler_4() {
-    		return /*click_handler_4*/ ctx[9](/*reservation*/ ctx[12]);
+    		return /*click_handler_4*/ ctx[14](/*reservation*/ ctx[19]);
     	}
 
     	const block = {
@@ -9588,51 +10060,63 @@ var app = (function () {
     			t2 = text(t2_value);
     			t3 = space();
     			td2 = element("td");
-    			p2 = element("p");
-    			t4 = text(t4_value);
-    			t5 = text(" / ");
-    			t6 = text(t6_value);
-    			t7 = space();
-    			td3 = element("td");
-    			div = element("div");
+    			div0 = element("div");
     			if_block0.c();
-    			t8 = space();
+    			t4 = space();
+    			td3 = element("td");
+    			div2 = element("div");
+    			div1 = element("div");
+    			label = element("label");
+    			label.textContent = "Current Time:";
+    			t6 = space();
+    			input = element("input");
+    			t7 = space();
     			td4 = element("td");
-    			p3 = element("p");
+    			p2 = element("p");
     			if_block1.c();
-    			t9 = space();
+    			t8 = space();
     			td5 = element("td");
-    			p4 = element("p");
+    			p3 = element("p");
     			button = element("button");
-    			button.textContent = "Cancel";
-    			t11 = space();
+    			button.textContent = "❌";
+    			t10 = space();
     			attr_dev(p0, "class", "flex justify-center items-center");
-    			add_location(p0, file$4, 117, 28, 4025);
+    			add_location(p0, file$4, 180, 36, 6712);
     			attr_dev(td0, "class", "border-b-2 border-nord0 py-4");
-    			add_location(td0, file$4, 116, 24, 3954);
-    			attr_dev(p1, "class", "flex justify-center items-center");
-    			add_location(p1, file$4, 122, 28, 4287);
+    			add_location(td0, file$4, 179, 32, 6633);
+    			attr_dev(p1, "class", "flex justify-center items-center text-nord13 text-center");
+    			add_location(p1, file$4, 185, 36, 7014);
     			attr_dev(td1, "class", "border-b-2 border-nord0 py-4");
-    			add_location(td1, file$4, 121, 24, 4216);
-    			attr_dev(p2, "class", "flex justify-center items-center");
-    			add_location(p2, file$4, 127, 28, 4548);
+    			add_location(td1, file$4, 184, 32, 6935);
+    			attr_dev(div0, "class", "flex justify-center items-center");
+    			add_location(div0, file$4, 192, 36, 7418);
     			attr_dev(td2, "class", "border-b-2 border-nord0 py-4");
-    			add_location(td2, file$4, 126, 24, 4477);
-    			attr_dev(div, "class", "flex justify-center items-center");
-    			add_location(div, file$4, 132, 28, 4837);
+    			add_location(td2, file$4, 191, 32, 7339);
+    			attr_dev(label, "for", "start-date");
+    			attr_dev(label, "class", "text-xs");
+    			add_location(label, file$4, 252, 44, 11667);
+    			attr_dev(input, "type", "date");
+    			input.value = input_value_value = /*reservation*/ ctx[19].current_time;
+    			attr_dev(input, "name", "start-date");
+    			input.disabled = input_disabled_value = /*reservation*/ ctx[19].status === "0";
+    			attr_dev(input, "class", "outline-none text-xs select-none border-none rounded-lg px-2 bg-nord3 focus:shadow-outline");
+    			add_location(input, file$4, 257, 44, 11968);
+    			add_location(div1, file$4, 251, 40, 11616);
+    			attr_dev(div2, "class", "flex flex-col mb-2 justify-center items-center");
+    			add_location(div2, file$4, 248, 36, 11435);
     			attr_dev(td3, "class", "border-b-2 border-nord0 py-4");
-    			add_location(td3, file$4, 131, 24, 4766);
-    			attr_dev(p3, "class", "flex justify-center items-center");
-    			add_location(p3, file$4, 164, 28, 6805);
+    			add_location(td3, file$4, 247, 32, 11356);
+    			attr_dev(p2, "class", "flex justify-center items-center");
+    			add_location(p2, file$4, 278, 36, 13388);
     			attr_dev(td4, "class", "border-b-2 border-nord0 py-4");
-    			add_location(td4, file$4, 163, 24, 6734);
+    			add_location(td4, file$4, 277, 32, 13309);
     			attr_dev(button, "class", "text-white bg-nord11 border-0 flex justify-center py-1 w-2/3 px-2 focus:outline-none rounded sm:text-md text-sm");
-    			add_location(button, file$4, 192, 32, 8549);
-    			attr_dev(p4, "class", "flex justify-center items-center");
-    			add_location(p4, file$4, 191, 28, 8471);
+    			add_location(button, file$4, 308, 40, 15495);
+    			attr_dev(p3, "class", "flex justify-center items-center");
+    			add_location(p3, file$4, 307, 36, 15409);
     			attr_dev(td5, "class", "border-b-2 border-nord0 py-4");
-    			add_location(td5, file$4, 190, 24, 8400);
-    			add_location(tr, file$4, 115, 20, 3924);
+    			add_location(td5, file$4, 306, 32, 15330);
+    			add_location(tr, file$4, 178, 28, 6595);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -9645,37 +10129,40 @@ var app = (function () {
     			append_dev(p1, t2);
     			append_dev(tr, t3);
     			append_dev(tr, td2);
-    			append_dev(td2, p2);
-    			append_dev(p2, t4);
-    			append_dev(p2, t5);
-    			append_dev(p2, t6);
-    			append_dev(tr, t7);
+    			append_dev(td2, div0);
+    			if_block0.m(div0, null);
+    			append_dev(tr, t4);
     			append_dev(tr, td3);
-    			append_dev(td3, div);
-    			if_block0.m(div, null);
-    			append_dev(tr, t8);
+    			append_dev(td3, div2);
+    			append_dev(div2, div1);
+    			append_dev(div1, label);
+    			append_dev(div1, t6);
+    			append_dev(div1, input);
+    			append_dev(tr, t7);
     			append_dev(tr, td4);
-    			append_dev(td4, p3);
-    			if_block1.m(p3, null);
-    			append_dev(tr, t9);
+    			append_dev(td4, p2);
+    			if_block1.m(p2, null);
+    			append_dev(tr, t8);
     			append_dev(tr, td5);
-    			append_dev(td5, p4);
-    			append_dev(p4, button);
-    			append_dev(tr, t11);
+    			append_dev(td5, p3);
+    			append_dev(p3, button);
+    			append_dev(tr, t10);
 
     			if (!mounted) {
-    				dispose = listen_dev(button, "click", click_handler_4, false, false, false);
+    				dispose = [
+    					listen_dev(input, "change", change_handler_2, false, false, false),
+    					listen_dev(button, "click", click_handler_4, false, false, false)
+    				];
+
     				mounted = true;
     			}
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if (dirty & /*reservationData*/ 1 && t0_value !== (t0_value = /*reservation*/ ctx[12].userName + "")) set_data_dev(t0, t0_value);
-    			if (dirty & /*reservationData*/ 1 && t2_value !== (t2_value = /*reservation*/ ctx[12].carName + "")) set_data_dev(t2, t2_value);
-    			if (dirty & /*reservationData*/ 1 && t4_value !== (t4_value = /*reservation*/ ctx[12].rent_start + "")) set_data_dev(t4, t4_value);
-    			if (dirty & /*reservationData*/ 1 && t6_value !== (t6_value = /*reservation*/ ctx[12].rent_end + "")) set_data_dev(t6, t6_value);
+    			if (dirty & /*reservationData*/ 1 && t0_value !== (t0_value = /*reservation*/ ctx[19].userName + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*reservationData*/ 1 && t2_value !== (t2_value = /*reservation*/ ctx[19].carName + "")) set_data_dev(t2, t2_value);
 
-    			if (current_block_type === (current_block_type = select_block_type_1(ctx)) && if_block0) {
+    			if (current_block_type === (current_block_type = select_block_type_2(ctx)) && if_block0) {
     				if_block0.p(ctx, dirty);
     			} else {
     				if_block0.d(1);
@@ -9683,11 +10170,19 @@ var app = (function () {
 
     				if (if_block0) {
     					if_block0.c();
-    					if_block0.m(div, null);
+    					if_block0.m(div0, null);
     				}
     			}
 
-    			if (current_block_type_1 === (current_block_type_1 = select_block_type_2(ctx)) && if_block1) {
+    			if (dirty & /*reservationData*/ 1 && input_value_value !== (input_value_value = /*reservation*/ ctx[19].current_time)) {
+    				prop_dev(input, "value", input_value_value);
+    			}
+
+    			if (dirty & /*reservationData*/ 1 && input_disabled_value !== (input_disabled_value = /*reservation*/ ctx[19].status === "0")) {
+    				prop_dev(input, "disabled", input_disabled_value);
+    			}
+
+    			if (current_block_type_1 === (current_block_type_1 = select_block_type_3(ctx)) && if_block1) {
     				if_block1.p(ctx, dirty);
     			} else {
     				if_block1.d(1);
@@ -9695,7 +10190,7 @@ var app = (function () {
 
     				if (if_block1) {
     					if_block1.c();
-    					if_block1.m(p3, null);
+    					if_block1.m(p2, null);
     				}
     			}
     		},
@@ -9704,7 +10199,7 @@ var app = (function () {
     			if_block0.d();
     			if_block1.d();
     			mounted = false;
-    			dispose();
+    			run_all(dispose);
     		}
     	};
 
@@ -9712,22 +10207,22 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(115:16) {#each items as reservation}",
+    		source: "(178:24) {#each items as reservation}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (94:28)           <h1>Waiting...</h1>      {:then items}
-    function create_pending_block(ctx) {
+    // (136:36)                   <h1>Waiting...</h1>              {:then items}
+    function create_pending_block_1(ctx) {
     	let h1;
 
     	const block = {
     		c: function create() {
     			h1 = element("h1");
     			h1.textContent = "Waiting...";
-    			add_location(h1, file$4, 94, 8, 3072);
+    			add_location(h1, file$4, 136, 16, 4583);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -9740,9 +10235,24 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+    		id: create_pending_block_1.name,
+    		type: "pending",
+    		source: "(136:36)                   <h1>Waiting...</h1>              {:then items}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (1:0) <script>      import getReservations from "../services/getReservations";      import handleApplication from "../services/handleApplication";      import changeTime from "../services/changeTime";      import getSession from "../services/getSession";      import checkRank from "../services/checkRank";      import Swal from "sweetalert2";        window.scroll({          top: 0,          left: 0,          behavior: "smooth",      }
+    function create_pending_block(ctx) {
+    	const block = { c: noop, m: noop, p: noop, d: noop };
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
     		id: create_pending_block.name,
     		type: "pending",
-    		source: "(94:28)           <h1>Waiting...</h1>      {:then items}",
+    		source: "(1:0) <script>      import getReservations from \\\"../services/getReservations\\\";      import handleApplication from \\\"../services/handleApplication\\\";      import changeTime from \\\"../services/changeTime\\\";      import getSession from \\\"../services/getSession\\\";      import checkRank from \\\"../services/checkRank\\\";      import Swal from \\\"sweetalert2\\\";        window.scroll({          top: 0,          left: 0,          behavior: \\\"smooth\\\",      }",
     		ctx
     	});
 
@@ -9760,18 +10270,18 @@ var app = (function () {
     		hasCatch: false,
     		pending: create_pending_block,
     		then: create_then_block,
-    		catch: create_catch_block,
-    		value: 11
+    		catch: create_catch_block_1,
+    		value: 17
     	};
 
-    	handle_promise(promise = /*reservationData*/ ctx[0], info);
+    	handle_promise(promise = /*isHaram*/ ctx[1], info);
 
     	const block = {
     		c: function create() {
     			main = element("main");
     			info.block.c();
     			attr_dev(main, "class", "mt-10 text-nord6 flex justify-center select-none");
-    			add_location(main, file$4, 92, 0, 2969);
+    			add_location(main, file$4, 132, 0, 4409);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9786,7 +10296,7 @@ var app = (function () {
     			ctx = new_ctx;
     			info.ctx = ctx;
 
-    			if (dirty & /*reservationData*/ 1 && promise !== (promise = /*reservationData*/ ctx[0]) && handle_promise(promise, info)) ; else {
+    			if (dirty & /*isHaram*/ 2 && promise !== (promise = /*isHaram*/ ctx[1]) && handle_promise(promise, info)) ; else {
     				update_await_block_branch(info, ctx, dirty);
     			}
     		},
@@ -9812,43 +10322,72 @@ var app = (function () {
     }
 
     function instance$4($$self, $$props, $$invalidate) {
+    	let isHaram;
+    	let reservationData;
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Applications', slots, []);
     	window.scroll({ top: 0, left: 0, behavior: "smooth" });
-    	let reservationData;
 
-    	const handleData = async () => {
-    		const res = await getReservations();
-    		const data = await res.sort((a, b) => a.carName.localeCompare(b.carName));
-    		return data;
+    	const checkIfClient = async () => {
+    		const logged = await getSession("getUser");
+
+    		if (await checkRank(logged) === "client") {
+    			return true;
+    		} else {
+    			return false;
+    		}
     	};
 
-    	reservationData = handleData();
+    	const handleData = async filter => {
+    		const res = await getReservations();
 
-    	const changeApplicationStatus = async (userId, carId) => {
+    		if (filter === "users") {
+    			const data = await res.sort((a, b) => a.userName.localeCompare(b.userName));
+    			return data;
+    		} else {
+    			const data = await res.sort((a, b) => a.carName.localeCompare(b.carName));
+    			return data;
+    		}
+    	};
+
+    	let filter = localStorage.getItem("filter")
+    	? localStorage.getItem("filter")
+    	: "cars";
+
+    	const changeApplicationStatus = async (userId, carId, resId) => {
+    		const d = new Date();
+    		const currentDate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
+    		await doesExist(resId, currentDate, "none", "none");
     		const res = await handleApplication(userId, carId, "update");
     		const data = await res;
     		if (data === "added") window.location.reload();
     	};
 
-    	const undoReservation = async (userId, carId) => {
+    	const undoReservation = async (userId, carId, resId) => {
+    		const d = new Date();
+    		const currentDate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
+    		await doesExist(resId, currentDate, currentDate, currentDate);
     		const res = await handleApplication(userId, carId, "remove");
     		const data = await res;
     		if (data === "removed") window.location.reload();
     	};
 
-    	const refuseReservation = async (userId, carId) => {
+    	const refuseReservation = async (userId, carId, resId) => {
+    		const d = new Date();
+    		const currentDate = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
+    		await doesExist(resId, currentDate, currentDate, currentDate);
     		const res = await handleApplication(userId, carId, "delete");
     		const data = await res;
     		if (data === "deleted") window.location.reload();
     	};
 
-    	const shortenRent = async (time, startDate, endDate, resId) => {
+    	const modifyTime = async (startDate, endDate, currentDate, resId) => {
     		let start = new Date(startDate);
-    		let modifiedDate = new Date(endDate);
-    		modifiedDate.setDate(modifiedDate.getDate() + time);
+    		let end = new Date(endDate);
 
-    		if (modifiedDate < start) {
+    		if (end < start) {
+    			$$invalidate(0, reservationData = handleData(filter));
+
     			const Toast = sweetalert2_all.mixin({
     				toast: true,
     				position: "top-end",
@@ -9859,16 +10398,16 @@ var app = (function () {
 
     			Toast.fire({
     				icon: "error",
-    				title: "The number of days cannot be reduced!"
+    				title: "Dates cannot be set!"
     			});
 
     			return;
     		}
 
-    		const res = await doesExist(resId, modifiedDate.toISOString().split("T")[0]);
+    		const res = await doesExist(resId, startDate, endDate, currentDate);
 
     		if (res === "changed") {
-    			$$invalidate(0, reservationData = handleData());
+    			$$invalidate(0, reservationData = handleData(filter));
 
     			const Toast = sweetalert2_all.mixin({
     				toast: true,
@@ -9904,41 +10443,76 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Applications> was created with unknown prop '${key}'`);
     	});
 
-    	const click_handler = reservation => shortenRent(1, reservation.rent_start, reservation.rent_end, reservation.id);
-    	const click_handler_1 = reservation => shortenRent(-1, reservation.rent_start, reservation.rent_end, reservation.id);
-    	const click_handler_2 = reservation => changeApplicationStatus(reservation.userId, reservation.carId);
-    	const click_handler_3 = reservation => undoReservation(reservation.userId, reservation.carId);
-    	const click_handler_4 = reservation => refuseReservation(reservation.userId, reservation.carId);
+    	const click_handler = () => {
+    		localStorage.setItem("filter", "users");
+    		$$invalidate(0, reservationData = handleData(localStorage.getItem("filter")));
+    	};
+
+    	const click_handler_1 = () => {
+    		localStorage.setItem("filter", "cars");
+    		$$invalidate(0, reservationData = handleData(localStorage.getItem("filter")));
+    	};
+
+    	const change_handler = (reservation, e) => {
+    		modifyTime(e.target.value, reservation.rent_end, reservation.current_time, reservation.id, reservation.userId);
+    	};
+
+    	const change_handler_1 = (reservation, e) => {
+    		modifyTime(reservation.rent_start, e.target.value, reservation.current_time, reservation.id, reservation.userId);
+    	};
+
+    	const change_handler_2 = (reservation, e) => {
+    		modifyTime(reservation.rent_start, reservation.rent_end, e.target.value, reservation.id, reservation.userId);
+    	};
+
+    	const click_handler_2 = reservation => changeApplicationStatus(reservation.userId, reservation.carId, reservation.id);
+    	const click_handler_3 = reservation => undoReservation(reservation.userId, reservation.carId, reservation.id);
+    	const click_handler_4 = reservation => refuseReservation(reservation.userId, reservation.carId, reservation.id);
 
     	$$self.$capture_state = () => ({
     		getReservations,
     		handleApplication,
     		changeTime: doesExist,
+    		getSession,
+    		checkRank,
     		Swal: sweetalert2_all,
-    		reservationData,
+    		checkIfClient,
     		handleData,
+    		filter,
     		changeApplicationStatus,
     		undoReservation,
     		refuseReservation,
-    		shortenRent
+    		modifyTime,
+    		reservationData,
+    		isHaram
     	});
 
     	$$self.$inject_state = $$props => {
+    		if ('filter' in $$props) $$invalidate(16, filter = $$props.filter);
     		if ('reservationData' in $$props) $$invalidate(0, reservationData = $$props.reservationData);
+    		if ('isHaram' in $$props) $$invalidate(1, isHaram = $$props.isHaram);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
+    	$$invalidate(1, isHaram = checkIfClient());
+    	$$invalidate(0, reservationData = handleData(filter));
+
     	return [
     		reservationData,
+    		isHaram,
+    		handleData,
     		changeApplicationStatus,
     		undoReservation,
     		refuseReservation,
-    		shortenRent,
+    		modifyTime,
     		click_handler,
     		click_handler_1,
+    		change_handler,
+    		change_handler_1,
+    		change_handler_2,
     		click_handler_2,
     		click_handler_3,
     		click_handler_4
@@ -10514,12 +11088,12 @@ var app = (function () {
     			add_location(a3, file$1, 49, 16, 2116);
     			attr_dev(path3, "stroke", "none");
     			attr_dev(path3, "d", "M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z");
-    			add_location(path3, file$1, 85, 24, 3560);
+    			add_location(path3, file$1, 88, 24, 3655);
     			attr_dev(circle, "cx", "4");
     			attr_dev(circle, "cy", "4");
     			attr_dev(circle, "r", "2");
     			attr_dev(circle, "stroke", "none");
-    			add_location(circle, file$1, 89, 24, 3780);
+    			add_location(circle, file$1, 92, 24, 3875);
     			attr_dev(svg3, "fill", "currentColor");
     			attr_dev(svg3, "stroke", "currentColor");
     			attr_dev(svg3, "stroke-linecap", "round");
@@ -10527,9 +11101,9 @@ var app = (function () {
     			attr_dev(svg3, "stroke-width", "0");
     			attr_dev(svg3, "class", "w-5 h-5");
     			attr_dev(svg3, "viewBox", "0 0 24 24");
-    			add_location(svg3, file$1, 76, 20, 3190);
+    			add_location(svg3, file$1, 79, 20, 3285);
     			attr_dev(a4, "class", "ml-3 text-gray-400 svelte-1x1bin0");
-    			attr_dev(a4, "href", "http://corndog.io/");
+    			attr_dev(a4, "href", "https://www.linkedin.com/in/antoni-zaremba-695397225/");
     			add_location(a4, file$1, 75, 16, 3112);
     			attr_dev(span, "class", "inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start");
     			add_location(span, file$1, 12, 12, 521);

@@ -1,4 +1,7 @@
+import changeBlock from "./changeBlock";
+
 export default async function handleApplication(userId, carId, action) {
+    await changeBlock()
     let formData = new FormData();
     formData.append("userId", userId);
     formData.append("carId", carId);

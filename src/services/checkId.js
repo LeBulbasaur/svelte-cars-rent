@@ -5,6 +5,6 @@ export default async function checkId(username) {
         method: "POST",
         body: formData,
     });
-    const data = await res.text();
+    const data = await res.json();
     return data;
 }
